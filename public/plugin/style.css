@@ -1,0 +1,51 @@
+body{
+     font-family: "Inter","Hanuman";
+     font-size: 18px;
+}
+
+/* loading */
+.dual-ring {
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+}
+.dual-ring:after {
+    content: " ";
+    display: block;
+    width: 64px;
+    height: 64px;
+    margin: 8px;
+    border-radius: 50%;
+    border: 6px solid #F4CE14; /* Change this color to your preference */
+    border-color: #F4CE14 transparent #F4CE14 transparent;
+    animation: dual-ring 1.2s linear infinite;
+}
+@keyframes dual-ring {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* end loading */
+
+/* front */
+
+    .half-bg {
+        background: linear-gradient(to top, #F4CE14 50%, transparent 50%);
+        display: inline-block;
+        transition: background 0.8s ease-in-out;
+    }
+    .half-bg:hover{
+        background: linear-gradient(to top, #F4CE14 100%, transparent 100%);
+    }
+    .navbar li a{
+        transition: background 0.8s ease-in-out;
+    }
+    .navbar li:hover a{
+        background: linear-gradient(to top, #F4CE14 50%, transparent 50%);
+    }
+
+/* end font */
