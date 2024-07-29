@@ -1,13 +1,13 @@
 import { defineConfig } from 'vite';
 import laravel from 'laravel-vite-plugin';
-import path from 'path'; 
+import path from 'path';
 
 export default defineConfig({
     plugins: [
         laravel({
             input: ['resources/css/app.css', 'resources/js/app.js'],
             refresh: true,
-            buildDirectory: 'public',
+            buildDirectory: 'public/build',
         }),
     ],
     build: {
@@ -16,6 +16,7 @@ export default defineConfig({
         rollupOptions: {
             input: {
                 app: 'resources/js/app.js',
+                style: 'resources/css/app.css',
             },
         },
     },
