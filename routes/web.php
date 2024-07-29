@@ -13,9 +13,9 @@ use App\Http\Controllers\AuthController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('home');
+// Route::get('/', function () {
+//     return view('welcome');
+// })->name('home');
 
 // Route::get('/article/detail', function(){
 //     return view('article-detail');
@@ -65,6 +65,8 @@ Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']
 
 // use App\Http\Controllers\ArticleController;
 // Route::get('{categorySlug}/{slug}', [ArticleController::class, 'detail'])->name('post.detail');
+use App\Livewire\Front\Home;
+Route::get('/', Home::class)->name('home');
 use App\Livewire\Front\AboutMe;
 Route::get('about-me', AboutMe::class)->name('about-me');
 use App\Livewire\Front\GetArticleByCategory;

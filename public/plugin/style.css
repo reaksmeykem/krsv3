@@ -49,3 +49,5 @@ body{
     }
 
 /* end font */
+
+[x-cloak] { display: none !important; }

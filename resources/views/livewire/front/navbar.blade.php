@@ -27,21 +27,23 @@
         </div>
     </div>
     {{-- search form --}}
-    <div x-data="{ open: @entangle('isOpen') }" x-show="open" class="fixed inset-0 flex items-start justify-center z-40 mx-6 lg:mx-0">
+    <div x-cloak x-data="{ open: @entangle('isOpen') }" x-show="open" class="fixed inset-0 flex items-start justify-center z-40 mx-6 lg:mx-0">
         <div class="fixed inset-0 bg-slate-900 bg-opacity-75" wire:click="closeModal()"></div>
-        <div x-show="open" x-transition
-            class="bg-white p-6 rounded shadow-lg z-10 my-8 w-full lg:max-w-[700px] overflow-y-auto max-h-screen">
-            <div>
-                <div class="flex justify-between items-start">
-                    <div>
-                        ស្វែងរក
-                    </div>
-                    <div class="sm:flex sm:flex-row-reverse">
-                        <button type="button" wire:click="closeModal()"
-                            ><i class="fa-solid fa-x"></i></button>
-                    </div>
-                </div>
 
+            <div x-show="open"
+                x-transition.scale
+                class="bg-white p-6 rounded shadow-lg z-10 my-8 w-full lg:max-w-[700px] overflow-y-auto max-h-screen">
+
+                <div>
+                    <div class="flex justify-between items-start">
+                        <div>
+                            ស្វែងរក
+                        </div>
+                        <div class="sm:flex sm:flex-row-reverse">
+                            <button type="button" wire:click="closeModal()"
+                                ><i class="fa-solid fa-x"></i></button>
+                        </div>
+                    </div>
                     <!-- Modal body -->
                     <div class="p-4 md:p-5">
                         <div class="mb-5 flex">
@@ -59,7 +61,7 @@
                                     @foreach($results as $article)
                                         <div class="mb-3">
                                             <a href="{{ route('post.detail', [$article->category->slug, $article->slug]) }}" wire:navigate>
-                                               <h3 class="text-xl hover:text-[#F4CE14]">{{ $article->title }}</h3>
+                                            <h3 class="text-xl hover:text-[#F4CE14]">{{ $article->title }}</h3>
                                             </a>
                                         </div>
                                     @endforeach
@@ -67,9 +69,10 @@
                             @endif
                         </div>
                     </div>
+                </div>
 
             </div>
-        </div>
+
     </div>
     {{-- end search form --}}
     @include('dashboard.mobile-menu')
