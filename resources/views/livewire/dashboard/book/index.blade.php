@@ -33,7 +33,7 @@
                     <i class="fa-solid fa-plus"></i> បង្កើតថ្មី
                   </button>
             </div>
-            <div x-show="open" class="fixed inset-0 z-10 overflow-y-auto">
+            <div x-cloak x-show="open" class="fixed inset-0 z-10 overflow-y-auto">
                 <div class="flex items-end justify-center min-w-full min-h-full p-4 text-center sm:items-center sm:p-0">
                     <div x-show="open" style="min-width:900px;" class="relative transform overflow-hidden rounded-lg bg-white px-4 pt-5 pb-4 text-left shadow-xl transition-all sm:my-8 min-w-[350px] sm:min-w-[600px] md:min-w-[800px] lg:min-w-[1200px] sm:p-6">
                         <div class="absolute top-0 right-0 hidden pt-4 pr-4 sm:block">
