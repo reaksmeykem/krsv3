@@ -3,7 +3,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <h3 class="text-4xl font-black leading-[48px] mb-8">អំពីខ្ញុំ</h3>
     <section>
-        <div class="text-2xl font-black">ការអប់រំ</div>
+        <div class="text-2xl font-black">ប្រវត្តិការសិក្សា</div>
         <ul role="list" class="m-8 max-w-screen-md">
             <li class="group relative flex flex-col pb-8 pl-7 last:pb-0">
                 <div class="absolute bottom-0 left-[calc(0.25rem-0.5px)] top-0 w-px bg-[#F4CE14] group-first:top-3"></div>
@@ -82,7 +82,7 @@
             ខែឧសភា ឆ្នាំ២០២០ ដល់ ខែសីហា ឆ្នាំ២០២១
             </p>
         </li>
-        <li class="group relative flex flex-col pb-8 pl-7 last:pb-0">
+        {{-- <li class="group relative flex flex-col pb-8 pl-7 last:pb-0">
             <div class="absolute bottom-0 left-[calc(0.25rem-0.5px)] top-0 w-px bg-[#F4CE14] group-first:top-3"></div>
             <div class="absolute left-0 top-2 h-2 w-2 rounded-full border border-yellow-300 bg-[#F4CE14]"></div>
             <p class="font-display text-xl order-first font-semibold  text-yellow-300">
@@ -108,7 +108,7 @@
                     <li>- Completed the seminar of Google Advance Research at AZE Innovation Teach</li>
                 </ul>
             </div>
-        </li>
+        </li> --}}
     </ul>
 </section>
 <section>
