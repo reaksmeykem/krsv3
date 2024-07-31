@@ -12,9 +12,12 @@ class ArticleController extends Controller
         $category = Category::where('slug', $categorySlug)->first();
         $post = Post::where('category_id', $category->id)->where('slug', $slug)->first();
 
+        $seo = $post->seo;
+
+        dd($seo);
         // about me
         if($post->id == 15){
-            return view('about-me', ['post' => $post]);
+            return view('about-me', ['post' => $post, 'seo' => $seo]);
         }
 
         if($post){

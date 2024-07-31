@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1f78a38c707ed80907e308cef97b96ca",
+    "content-hash": "d4ab506edce32f75120cefa4f329ef39",
     "packages": [
         {
             "name": "aws/aws-crt-php",
@@ -3462,6 +3462,52 @@
             "time": "2020-10-15T08:29:30+00:00"
         },
         {
+            "name": "phannaly/php-datetime-khmer",
+            "version": "1.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/phannaly/php-datetime-khmer.git",
+                "reference": "74aa8caec0b6252f0ec7a52c36ee2ead4e947a35"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/phannaly/php-datetime-khmer/zipball/74aa8caec0b6252f0ec7a52c36ee2ead4e947a35",
+                "reference": "74aa8caec0b6252f0ec7a52c36ee2ead4e947a35",
+                "shasum": ""
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^9.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "KhmerDateTime\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "phanna",
+                    "email": "studentphanna@gmail.com"
+                }
+            ],
+            "description": "The PHP library for convert datetime to Khmer",
+            "keywords": [
+                "cambodia",
+                "datetime",
+                "helpers",
+                "khmer"
+            ],
+            "support": {
+                "issues": "https://github.com/phannaly/php-datetime-khmer/issues",
+                "source": "https://github.com/phannaly/php-datetime-khmer/tree/1.0.3"
+            },
+            "time": "2020-11-30T14:45:31+00:00"
+        },
+        {
             "name": "phpoption/phpoption",
             "version": "1.9.3",
             "source": {
@@ -4182,6 +4228,157 @@
             "time": "2019-03-08T08:55:37+00:00"
         },
         {
+            "name": "ralphjsmit/laravel-helpers",
+            "version": "1.9.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ralphjsmit/laravel-helpers.git",
+                "reference": "840b4979a92c7b676d25f56430823f12481f2914"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ralphjsmit/laravel-helpers/zipball/840b4979a92c7b676d25f56430823f12481f2914",
+                "reference": "840b4979a92c7b676d25f56430823f12481f2914",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "^7.4",
+                "illuminate/contracts": "^8.73|^9.0|^10.0|^11.0",
+                "php": "^8.0",
+                "spatie/laravel-package-tools": "^1.9.2"
+            },
+            "require-dev": {
+                "livewire/livewire": "^2.9|^3.4",
+                "nesbot/carbon": "^2.66|^3.0",
+                "nunomaduro/collision": "^5.10|^6.1|^7.0|^8.0",
+                "orchestra/testbench": "^6.22|^7.0|^8.0|^9.0",
+                "pestphp/pest": "^1.21|^2.34",
+                "pestphp/pest-plugin-laravel": "^1.1|^2.3",
+                "phpunit/phpunit": "^9.5|^10.5",
+                "spatie/invade": "^1.0|^2.0",
+                "spatie/laravel-ray": "^1.26"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "RalphJSmit\\Helpers\\HelpersServiceProvider"
+                    ],
+                    "aliases": {
+                        "Helpers": "RalphJSmit\\Helpers\\Facades\\Helpers"
+                    }
+                }
+            },
+            "autoload": {
+                "files": [
+                    "src/Laravel/Support/helpers.php",
+                    "src/helpers.php"
+                ],
+                "psr-4": {
+                    "RalphJSmit\\Helpers\\": "src",
+                    "RalphJSmit\\Helpers\\Database\\Factories\\": "database/factories"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ralph J. Smit",
+                    "email": "rjs@ralphjsmit.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A package containing handy helpers for your Laravel-application.",
+            "homepage": "https://github.com/ralphjsmit/laravel-helpers",
+            "keywords": [
+                "laravel",
+                "laravel-helpers",
+                "ralphjsmit"
+            ],
+            "support": {
+                "issues": "https://github.com/ralphjsmit/laravel-helpers/issues",
+                "source": "https://github.com/ralphjsmit/laravel-helpers/tree/1.9.0"
+            },
+            "time": "2024-03-14T08:30:30+00:00"
+        },
+        {
+            "name": "ralphjsmit/laravel-seo",
+            "version": "1.6.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ralphjsmit/laravel-seo.git",
+                "reference": "c7a9e903e946aec4271078af4e990b336be74998"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ralphjsmit/laravel-seo/zipball/c7a9e903e946aec4271078af4e990b336be74998",
+                "reference": "c7a9e903e946aec4271078af4e990b336be74998",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/contracts": "^9.0|^10.0|^11.0",
+                "php": "^8.0",
+                "ralphjsmit/laravel-helpers": "^1.9",
+                "spatie/laravel-package-tools": "^1.9.2"
+            },
+            "require-dev": {
+                "laravel/pint": "^1.16",
+                "nesbot/carbon": "^2.66|^3.0",
+                "nunomaduro/collision": "^5.10|^6.0|^7.0|^8.0",
+                "orchestra/testbench": "^7.0|^8.0|^9.0",
+                "pestphp/pest": "^1.21|^2.0",
+                "pestphp/pest-plugin-laravel": "^1.1|^2.0",
+                "phpunit/phpunit": "^9.5|^10.5",
+                "spatie/laravel-ray": "^1.26",
+                "spatie/pest-plugin-test-time": "^1.0|^2.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "RalphJSmit\\Laravel\\SEO\\LaravelSEOServiceProvider"
+                    ],
+                    "aliases": {
+                        "SEOManager": "RalphJSmit\\Laravel\\SEO\\Facades\\SEOManager"
+                    }
+                }
+            },
+            "autoload": {
+                "files": [
+                    "src/helpers.php"
+                ],
+                "psr-4": {
+                    "RalphJSmit\\Laravel\\SEO\\": "src",
+                    "RalphJSmit\\Laravel\\SEO\\Database\\Factories\\": "database/factories"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ralph J. Smit",
+                    "email": "rjs@ralphjsmit.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A package to handle the SEO in any Laravel application, big or small.",
+            "homepage": "https://github.com/ralphjsmit/laravel-seo",
+            "keywords": [
+                "laravel",
+                "laravel-seo",
+                "ralphjsmit"
+            ],
+            "support": {
+                "issues": "https://github.com/ralphjsmit/laravel-seo/issues",
+                "source": "https://github.com/ralphjsmit/laravel-seo/tree/1.6.2"
+            },
+            "time": "2024-06-15T14:21:44+00:00"
+        },
+        {
             "name": "ramsey/collection",
             "version": "2.0.0",
             "source": {
@@ -4361,6 +4558,144 @@
                 }
             ],
             "time": "2024-04-27T21:32:50+00:00"
+        },
+        {
+            "name": "spatie/laravel-cookie-consent",
+            "version": "3.2.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spatie/laravel-cookie-consent.git",
+                "reference": "5a5b2f0a03cc66d8ffede42037a7f3e00f95aaa9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spatie/laravel-cookie-consent/zipball/5a5b2f0a03cc66d8ffede42037a7f3e00f95aaa9",
+                "reference": "5a5b2f0a03cc66d8ffede42037a7f3e00f95aaa9",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/cookie": "^8.0|^9.0|^10.0",
+                "illuminate/support": "^8.0|^9.0|^10.0",
+                "illuminate/view": "^8.0|^9.0|^10.0",
+                "php": "^8.0",
+                "spatie/laravel-package-tools": "^1.9"
+            },
+            "require-dev": {
+                "fakerphp/faker": "^1.9",
+                "orchestra/testbench": "^6.0|^7.0|^8.0",
+                "pestphp/pest": "^1.22"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Spatie\\CookieConsent\\CookieConsentServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Spatie\\CookieConsent\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Freek Van der Herten",
+                    "email": "freek@spatie.be",
+                    "homepage": "https://spatie.be",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Willem Van Bockstal",
+                    "email": "willem@spatie.be",
+                    "homepage": "https://spatie.be",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Make your Laravel app comply with the crazy EU cookie law",
+            "homepage": "https://github.com/spatie/cookie-consent",
+            "keywords": [
+                "comply",
+                "cookie",
+                "cookie-consent",
+                "eu",
+                "law",
+                "spatie"
+            ],
+            "support": {
+                "source": "https://github.com/spatie/laravel-cookie-consent/tree/3.2.4"
+            },
+            "funding": [
+                {
+                    "url": "https://spatie.be/open-source/support-us",
+                    "type": "custom"
+                }
+            ],
+            "time": "2023-01-25T09:18:22+00:00"
+        },
+        {
+            "name": "spatie/laravel-package-tools",
+            "version": "1.16.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spatie/laravel-package-tools.git",
+                "reference": "ddf678e78d7f8b17e5cdd99c0c3413a4a6592e53"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spatie/laravel-package-tools/zipball/ddf678e78d7f8b17e5cdd99c0c3413a4a6592e53",
+                "reference": "ddf678e78d7f8b17e5cdd99c0c3413a4a6592e53",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/contracts": "^9.28|^10.0|^11.0",
+                "php": "^8.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "^1.5",
+                "orchestra/testbench": "^7.7|^8.0",
+                "pestphp/pest": "^1.22",
+                "phpunit/phpunit": "^9.5.24",
+                "spatie/pest-plugin-test-time": "^1.1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Spatie\\LaravelPackageTools\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Freek Van der Herten",
+                    "email": "freek@spatie.be",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Tools for creating Laravel packages",
+            "homepage": "https://github.com/spatie/laravel-package-tools",
+            "keywords": [
+                "laravel-package-tools",
+                "spatie"
+            ],
+            "support": {
+                "issues": "https://github.com/spatie/laravel-package-tools/issues",
+                "source": "https://github.com/spatie/laravel-package-tools/tree/1.16.4"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/spatie",
+                    "type": "github"
+                }
+            ],
+            "time": "2024-03-20T07:29:11+00:00"
         },
         {
             "name": "spatie/laravel-permission",

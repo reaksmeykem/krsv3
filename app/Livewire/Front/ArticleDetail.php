@@ -16,6 +16,7 @@ class ArticleDetail extends Component
     public $author;
     public $userAvatar;
     public $thumbnail;
+    public $seo;
     public function mount(Post $post){
         $this->title = $post->title;
         $this->body = $post->body;

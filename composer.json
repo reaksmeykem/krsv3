@@ -19,6 +19,9 @@
         "league/flysystem-aws-s3-v3": "^3.28",
         "livewire/livewire": "^3.5",
         "livewire/volt": "^1.6",
+        "phannaly/php-datetime-khmer": "^1.0",
+        "ralphjsmit/laravel-seo": "^1.6",
+        "spatie/laravel-cookie-consent": "^3.2",
         "spatie/laravel-permission": "^6.7",
         "unisharp/laravel-filemanager": "^2.9"
     },
