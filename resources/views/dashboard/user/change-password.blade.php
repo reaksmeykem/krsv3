@@ -1,4 +1,4 @@
-<div x-data="{ open: @entangle('showChangePasswordModal') }" class="relative" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+<div x-cloak x-data="{ open: @entangle('showChangePasswordModal') }" class="relative" aria-labelledby="modal-title" role="dialog" aria-modal="true">
     <div x-show="open" class="fixed inset-0 bg-gray-500 bg-opacity-50 transition-opacity" aria-hidden="true"></div>
     <button wire:click="changePassword({{ $user->id }})" class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-1 px-3 border border-blue-500 hover:border-transparent rounded">
         <i class="fa-solid fa-lock"></i>

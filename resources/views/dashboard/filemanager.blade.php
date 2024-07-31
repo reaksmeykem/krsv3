@@ -11,7 +11,7 @@
         "advlist autolink lists link image charmap print preview hr anchor pagebreak",
         "searchreplace wordcount visualblocks visualchars code fullscreen",
         "insertdatetime media nonbreaking save table directionality",
-        "emoticons template paste textpattern"
+        "emoticons template paste textpattern codesample"
       ],
       toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image media",
       file_picker_callback : function(callback, value, meta) {

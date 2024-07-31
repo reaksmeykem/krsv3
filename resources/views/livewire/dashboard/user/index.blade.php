@@ -38,9 +38,9 @@
                     បង្កើតថ្មី
                 </button>
             </div>
-            <div x-data="{ open: @entangle('isOpen') }" x-show="open" class="fixed inset-0 flex items-center justify-center z-40">
+            <div x-cloak x-data="{ open: @entangle('isOpen') }" x-show="open" class="fixed inset-0 flex items-center justify-center z-40">
                 <div class="fixed inset-0 bg-slate-900 bg-opacity-75" wire:click="closeModal()"></div>
-                <div x-cloak x-show="open" x-transition:enter="transition ease-out duration-100"
+                <div  x-show="open" x-transition:enter="transition ease-out duration-100"
                     x-transition:enter-start="opacity-0 transform scale-90"
                     x-transition:enter-end="opacity-100 transform scale-100"
                     x-transition:leave="transition ease-in duration-100"
@@ -179,9 +179,9 @@
             </div>
         </div>
 
-        <div class="relative overflow-x-auto sm:rounded-lg ">
+        <div x-cloak wire:ignore class="relative overflow-x-auto sm:rounded-lg ">
 
-            <table class="w-full">
+            <table id="example"  class="w-full display" style="width:100% !important;">
                 <thead class="text-xs text-gray-700 uppercase bg-gray-50">
                     <tr>
                         <th scope="col" class="px-6 py-3">ID</th>
@@ -262,4 +262,7 @@
             })
         }
     </script>
+
+    
+
 </div>

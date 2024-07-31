@@ -109,10 +109,11 @@ class Index extends Component
 
         $this->validate();
 
-        // $photoUserPath = $this->photo ? $this->photo->store('users', 's3') : null;
-        $fileName = time() . '_' . $this->photo->getClientOriginalName();
-        $storagePath = $this->photo->storeAs('public/users', $fileName);
-
+        if($this->photo){
+            // $photoUserPath = $this->photo ? $this->photo->store('users', 's3') : null;
+            $fileName = time() . '_' . $this->photo->getClientOriginalName();
+            $storagePath = $this->photo->storeAs('public/users', $fileName);
+        }
 
         $user = User::create([
             'name' => $this->name,
@@ -127,6 +128,7 @@ class Index extends Component
         $this->mount();
         $this->resetFields();
         $this->closeModal();
+        return redirect(request()->header('Referer'));
 
         $this->alert('success','User created successfully', [
             'position' => 'top-end',
@@ -187,6 +189,7 @@ class Index extends Component
         $this->new_password = '';
         $this->confirm_new_password = '';
         $this->closeChangePasswordModal();
+        return redirect(request()->header('Referer'));
 
         $this->alert('success','The password reset successfully.', [
             'position' => 'top-end',
@@ -258,6 +261,7 @@ try{
         $this->mount();
         $this->resetFields();
         $this->closeModal();
+        return redirect(request()->header('Referer'));
 
         $this->alert('success','User created successfully', [
             'position' => 'top-end',
@@ -297,6 +301,7 @@ try{
         $user->delete();
         $this->mount();
         $this->resetFields();
+        return redirect(request()->header('Referer'));
         $this->alert('success','User deleted successfully', [
             'position' => 'top-end',
             'timer' => 3000,

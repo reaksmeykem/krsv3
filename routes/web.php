@@ -54,8 +54,11 @@ use App\Http\Controllers\PostController;
 
 Route::get('admin/post/index' ,App\Livewire\Dashboard\Post\Index::class)->name('post.index');
 Route::get('admin/post/create', App\Livewire\Dashboard\Post\PostForm::class)->name('post.create');
-
 Route::get('/admin/post/edit/{id}/', [PostController::class,'edit'])->name('post.edit');
+
+Route::get('/admin/tutorial/index', App\Livewire\Dashboard\Tutorial\Index::class)->name('tutorial.index');
+
+
 
 Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
     \UniSharp\LaravelFilemanager\Lfm::routes();

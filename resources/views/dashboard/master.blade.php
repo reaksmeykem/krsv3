@@ -8,7 +8,8 @@
     {{-- google font --}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://fonts.googleapis.com/css2?family=Hanuman:wght@100;300;400;700;900&family=Inter:wght@100..900&display=swap" rel="stylesheet">
-
+    {{-- datable --}}
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.1.2/css/dataTables.tailwindcss.css">
     {{-- main style --}}
     <link rel="stylesheet" href="{{ asset('plugin/style.css') }}">
     @vite(['resources/css/app.css','resources/js/app.js'])
@@ -33,6 +34,20 @@
 <x-livewire-alert::scripts />
 
 @include('dashboard.plugin.loading')
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.datatables.net/2.1.2/js/dataTables.js"></script>
+<script src="https://cdn.datatables.net/2.1.2/js/dataTables.tailwindcss.js"></script>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+    new DataTable('#example');
+</script>
+
+
 @livewireScripts
 
 </body>
