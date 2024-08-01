@@ -1,4 +1,5 @@
-{{-- @if($cookieConsentConfig['enabled'] && ! $alreadyConsentedWithCookies)
+<div wire:poll.keep-alive>
+    @if($cookieConsentConfig['enabled'] && ! $alreadyConsentedWithCookies)
 
     @include('cookie-consent::dialogContents')
 
@@ -53,6 +54,5 @@
         })();
     </script>
 
-@endif --}}
-
-@include('livewire.cookie-consent')
+@endif
+</div>
