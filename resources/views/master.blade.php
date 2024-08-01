@@ -38,14 +38,12 @@
         @yield('content')
     </div>
 
-    @include('cookie-consent::index')
-
-
-
-
 
     @livewire('front.footer')
     @include('dashboard.plugin.loading')
     @livewireScripts
+
+    @include('cookie-consent::index')
+
 </body>
 </html>
