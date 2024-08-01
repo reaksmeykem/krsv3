@@ -1,4 +1,4 @@
-<div wire:poll.keep-alive>
+<div wire:poll.15s>
     @if($cookieConsentConfig['enabled'] && ! $alreadyConsentedWithCookies)
 
     @include('cookie-consent::dialogContents')
