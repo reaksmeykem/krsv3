@@ -13,6 +13,16 @@
     <link href="https://fonts.googleapis.com/css2?family=Hanuman:wght@100;300;400;700;900&family=Inter:wght@100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('plugin/style.css') }}">
 
+    {{-- google analytics --}}
+    <script async src="https://www.googletagmanager.com/gtag/js?id={{ config('services.ga4.measurementId') }}"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', '{{ config('services.ga4.measurementId') }}');
+    </script>
+    {{-- end google analytics --}}
+
     @vite(['resources/css/app.css','resources/js/app.js'])
     @livewireStyles
 </head>
