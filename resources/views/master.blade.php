@@ -6,6 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{{ env('APP_NAME') }}</title>
     <link rel="stylesheet" href="{{ asset('plugin/style.css') }}">
+    {{-- humix.com --}}
+    <meta name="humix-site-verification" content="9E0WWlsz29BIbxNkhVNvZzxwx9SOJS" />
 
     {!! seo() !!}
     {{-- google font --}}
@@ -43,7 +45,7 @@
     @include('dashboard.plugin.loading')
     @livewireScripts
 
-    
+
 
 </body>
 </html>
