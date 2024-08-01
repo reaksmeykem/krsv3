@@ -17,6 +17,7 @@ class ArticleDetail extends Component
     public $userAvatar;
     public $thumbnail;
     public $seo;
+    public $views;
     public function mount(Post $post){
         $this->title = $post->title;
         $this->body = $post->body;
@@ -26,6 +27,9 @@ class ArticleDetail extends Component
         $this->author = $post->user->name;
         $this->userAvatar = Storage::url($post->user->photo);
         $this->thumbnail = Storage::url($post->thumbnail_path);
+        
+
+
     }
     public function render()
     {

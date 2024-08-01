@@ -11,10 +11,11 @@ class ArticleController extends Controller
     public function detail($categorySlug, $slug){
         $category = Category::where('slug', $categorySlug)->first();
         $post = Post::where('category_id', $category->id)->where('slug', $slug)->first();
-
+        dd($post);
         $seo = $post->seo;
+        $views = $post->increment('view_count');
 
-        dd($seo);
+
         // about me
         if($post->id == 15){
             return view('about-me', ['post' => $post, 'seo' => $seo]);

@@ -27,7 +27,7 @@
         </div>
     </div>
     {{-- search form --}}
-    <div wire:ignore x-cloak x-data="{ open: @entangle('isOpen') }" x-show="open" class="fixed inset-0 flex items-start justify-center z-40 mx-6 lg:mx-0">
+    <div x-cloak x-data="{ open: @entangle('isOpen') }" x-show="open" class="fixed inset-0 flex items-start justify-center z-40 mx-6 lg:mx-0">
         <div class="fixed inset-0 bg-slate-900 bg-opacity-75" wire:click="closeModal()"></div>
             <div x-show="open"
                 x-transition.scale
