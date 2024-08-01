@@ -111,7 +111,7 @@
                 <li class="my-3"><a href="{{ route('post.index') }}" wire:naviate><i class="fa-solid fa-newspaper"></i> ប្លុក</a></li>
                 @endcan
 
-                <li class="my-3"><a href="{{ route('tutorial.index') }}" wire:naviate><i class="fa-solid fa-newspaper"></i> ការបង្រៀន</a></li>
+                {{-- <li class="my-3"><a href="{{ route('tutorial.index') }}" wire:naviate><i class="fa-solid fa-newspaper"></i> ការបង្រៀន</a></li> --}}
             </ul>
         </div>
     </div>
