@@ -12,7 +12,7 @@
             </div>
             <div class="flex justify-center my-8 lg:my-0">
                 <div>
-                    <img class="w-[120px] hover:-rotate-12 transition-transform cursor-pointer" src="{{ asset('storage/photos/13/defaultphoto/logo.png') }}" alt="">
+                    <img class="w-full hover:-rotate-12 transition-transform cursor-pointer" src="{{ asset('storage/photos/13/defaultphoto/logo.png') }}" alt="">
                 </div>
             </div>
         </section>
