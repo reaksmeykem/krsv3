@@ -74,4 +74,6 @@
     </div>
     {{-- end search form --}}
     @include('dashboard.mobile-menu')
+
+    @include('cookie-consent::index')
 </div>

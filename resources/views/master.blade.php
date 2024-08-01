@@ -43,17 +43,7 @@
     @include('dashboard.plugin.loading')
     @livewireScripts
 
-    @include('cookie-consent::index')
-
-    {{-- force a page refresh --}}
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            if (!localStorage.getItem('pageLoaded')) {
-                localStorage.setItem('pageLoaded', 'true');
-                location.reload();
-            }
-        });
-    </script>
+    
 
 </body>
 </html>
