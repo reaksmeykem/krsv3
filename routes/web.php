@@ -41,8 +41,9 @@ Route::middleware(['auth', 'role_or_permission:view role|create role|edit role|u
 Route::middleware(['auth', 'role_or_permission:view permission|create permission|edit permission|update permission|delete permission'])->group(function () {
     Route::get('admin/permission/index' ,App\Livewire\Dashboard\Permission\Index::class)->name('permission.index');
 });
-
-Route::get('admin/category/index' ,App\Livewire\Dashboard\Category\Index::class)->name('category.index');
+Route::middleware(['auth', 'role_or_permission:view category|create category|edit category|update category|delete category'])->group(function () {
+    Route::get('admin/category/index' ,App\Livewire\Dashboard\Category\Index::class)->name('category.index');
+});
 
 Route::get('admin/book/index' ,App\Livewire\Dashboard\Book\Index::class)->name('book.index');
 Route::get('admin/book/create' ,App\Livewire\Dashboard\Book\Create::class)->name('book.create');
@@ -51,10 +52,12 @@ use App\Http\Controllers\PostController;
 // Route::get('/admin/post/index', [PostController::class,'index'])->name('post.index');
 // Route::get('/admin/post/create', [PostController::class,'create'])->name('post.create');
 // Route::post('/admin/post/store', [PostController::class,'store'])->name('post.store');
+Route::middleware(['auth', 'role_or_permission:view post|create post|edit post|update post|delete post'])->group(function () {
+    Route::get('admin/post/index' ,App\Livewire\Dashboard\Post\Index::class)->name('post.index');
+    Route::get('admin/post/create', App\Livewire\Dashboard\Post\PostForm::class)->name('post.create');
+    Route::get('/admin/post/edit/{id}/', [PostController::class,'edit'])->name('post.edit');
 
-Route::get('admin/post/index' ,App\Livewire\Dashboard\Post\Index::class)->name('post.index');
-Route::get('admin/post/create', App\Livewire\Dashboard\Post\PostForm::class)->name('post.create');
-Route::get('/admin/post/edit/{id}/', [PostController::class,'edit'])->name('post.edit');
+});
 
 Route::get('/admin/tutorial/index', App\Livewire\Dashboard\Tutorial\Index::class)->name('tutorial.index');
 
@@ -74,6 +77,8 @@ use App\Livewire\Front\AboutMe;
 Route::get('about-me', AboutMe::class)->name('about-me');
 use App\Livewire\Front\GetArticleByCategory;
 Route::get('{categorySlug}/', GetArticleByCategory::class)->name('get-article-by-category');
+use App\Livewire\Front\GetArticleByTag;
+Route::get('tag/{tagSlug}/', GetArticleByTag::class)->name('get-article-by-tag');
 use App\Livewire\Front\PostDetail;
 Route::get('{categorySlug}/{postSlug}', PostDetail::class)->name('post.detail');
 

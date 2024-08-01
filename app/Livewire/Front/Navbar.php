@@ -23,9 +23,10 @@ class Navbar extends Component
             $this->results = null;
         } else {
             $this->results = Post::where('title', 'like', '%' . $this->searchTerm . '%')
+            ->orWhere('body','like','%' .$this->searchTerm .'%')
             ->orWhereHas('tags', function ($query) {
                 $query->where('name', 'like', '%' . $this->searchTerm . '%');
-            })->get();;
+            })->get();
         }
 
     }

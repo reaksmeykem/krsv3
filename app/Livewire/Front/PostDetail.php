@@ -17,10 +17,14 @@ class PostDetail extends Component
     public $author;
     public $userAvatar;
     public $thumbnail;
+    public $seo;
 
     public function mount($categorySlug, $postSlug){
         $category = Category::where('slug', $categorySlug)->first();
         $post = Post::where('category_id', $category->id)->where('slug', $postSlug)->first();
+
+        // $this->seo = $post->seo;
+        $post->increment('view_count');
 
         if($post->id == 15){
             return $this->redirect(route('about-me'), navigate:true);

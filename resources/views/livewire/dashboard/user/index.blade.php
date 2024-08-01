@@ -181,7 +181,7 @@
 
         <div x-cloak wire:ignore class="relative overflow-x-auto sm:rounded-lg ">
 
-            <table id="example"  class="w-full display" style="width:100% !important;">
+            <table class="w-full">
                 <thead class="text-xs text-gray-700 uppercase bg-gray-50">
                     <tr>
                         <th scope="col" class="px-6 py-3">ID</th>
@@ -263,6 +263,6 @@
         }
     </script>
 
-    
+
 
 </div>

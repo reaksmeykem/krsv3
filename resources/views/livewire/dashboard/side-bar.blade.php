@@ -28,8 +28,10 @@
                     @can('view book')
                         <li><a href="{{ route('book.index') }}" wire:naviate><i class="fa-solid fa-book"></i> សៀវភៅ</a></li>
                     @endcan
+                    @can('view post')
                     <li><a href="{{ route('post.index') }}" wire:naviate><i class="fa-solid fa-newspaper"></i> ប្លុក</a></li>
-
+                    @endcan
+                    
                     <li><a href="{{ route('tutorial.index') }}" wire:naviate><i class="fa-solid fa-newspaper"></i> ការបង្រៀន</a></li>
                 </ul>
             </div>

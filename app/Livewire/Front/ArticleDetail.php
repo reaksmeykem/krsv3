@@ -19,16 +19,15 @@ class ArticleDetail extends Component
     public $seo;
     public $views;
     public function mount(Post $post){
-        $this->title = $post->title;
-        $this->body = $post->body;
-        $this->tags = $post->tags;
-        $this->categoryName = $post->category->name;
-        $this->publishedAt = \Carbon\Carbon::create($post->published_at)->format("F d, Y");
-        $this->author = $post->user->name;
-        $this->userAvatar = Storage::url($post->user->photo);
-        $this->thumbnail = Storage::url($post->thumbnail_path);
-        
 
+        // $this->title = $post->title;
+        // $this->body = $post->body;
+        // $this->tags = $post->tags;
+        // $this->categoryName = $post->category->name;
+        // $this->publishedAt = \Carbon\Carbon::create($post->published_at)->format("F d, Y");
+        // $this->author = $post->user->name;
+        // $this->userAvatar = Storage::url($post->user->photo);
+        // $this->thumbnail = Storage::url($post->thumbnail_path);
 
     }
     public function render()

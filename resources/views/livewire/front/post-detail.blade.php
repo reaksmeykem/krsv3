@@ -26,7 +26,7 @@
             <div class="flex flex-wrap">
                 @foreach($tags as $tag)
                     <div class="mb-3 mr-3">
-                        <a href="" class="border py-2 px-4 rounded hover:bg-[#F4CE14]">{{ $tag->name }}</a>
+                        <a href="{{ route('get-article-by-tag', $tag->slug) }}" class="border py-2 px-4 rounded hover:bg-[#F4CE14]">{{ $tag->name }}</a>
                     </div>
                 @endforeach
             </div>

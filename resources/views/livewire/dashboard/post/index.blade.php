@@ -52,7 +52,7 @@
 
         {{-- table --}}
         <div class="relative overflow-x-auto sm:rounded-lg mt-8">
-            <table id="example"  class="w-full display">
+            <table class="w-full">
                 <thead class="text-xs text-gray-700 uppercase bg-gray-50 ">
                     <tr>
                         <th>ID</th>
