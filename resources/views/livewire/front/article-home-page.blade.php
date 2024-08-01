@@ -1,7 +1,7 @@
 <div>
     <section class="mb-[60px] px-6 lg:px-0">
         <div class="flex justify-between items-center mb-6">
-            <div class="text-3xl font-bold">អត្ថបទថ្មីៗ</div>
+            <div class="text-3xl font-bold">មាតិការថ្មីៗ</div>
         </div>
         <div class="space-y-6">
             @foreach($latestArticles as $article)
