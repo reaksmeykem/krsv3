@@ -21,7 +21,16 @@ class PostDetail extends Component
 
     public function mount($categorySlug, $postSlug){
         $category = Category::where('slug', $categorySlug)->first();
+
+        if (!$category) {
+            abort(404, 'Category not found');
+        }
+
         $post = Post::where('category_id', $category->id)->where('slug', $postSlug)->first();
+
+        if (!$post) {
+            abort(404, 'Post not found');
+        }
 
         // $this->seo = $post->seo;
         $post->increment('view_count');
@@ -39,19 +48,6 @@ class PostDetail extends Component
         $this->userAvatar = Storage::url($post->user->photo);
         $this->thumbnail = Storage::url($post->thumbnail_path);
     }
-
-
-
-    // public function mount(Post $post){
-    //     $this->title = $post->title;
-    //     $this->body = $post->body;
-    //     $this->tags = $post->tags;
-    //     $this->categoryName = $post->category->name;
-    //     $this->publishedAt = \Carbon\Carbon::create($post->published_at)->format("F d, Y");
-    //     $this->author = $post->user->name;
-    //     $this->userAvatar = Storage::url($post->user->photo);
-    //     $this->thumbnail = Storage::url($post->thumbnail_path);
-    // }
 
     public function render()
     {

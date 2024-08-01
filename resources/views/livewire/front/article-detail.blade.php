@@ -1,5 +1,5 @@
 <div>
-    {!! seo() !!}
+    
     <section class="px-6 lg:px-0">
         <div class=" mb-8">
             <div class="flex mb-6">
