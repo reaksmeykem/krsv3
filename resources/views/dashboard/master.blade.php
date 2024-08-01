@@ -16,14 +16,14 @@
     @livewireStyles
 </head>
 <body class="bg-gray-50 overflow-x-hidden">
-    <div id="loading-spinner" class="fixed inset-0 flex items-center justify-center bg-gray-100 bg-opacity-100 z-50">
+    {{-- <div id="loading-spinner" class="fixed inset-0 flex items-center justify-center bg-gray-100 bg-opacity-100 z-50">
         <div class="dual-ring"></div>
-    </div>
+    </div> --}}
     <div class="max-w-screen mx-auto">
         @livewire('dashboard.side-bar')
     </div>
     <div class="max-w-screen-xl mx-auto">
-        <div>
+        <div class="my-[60px] mx-[20px]">
             @yield('content')
         </div>
     </div>
@@ -33,7 +33,7 @@
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <x-livewire-alert::scripts />
 
-@include('dashboard.plugin.loading')
+{{-- @include('dashboard.plugin.loading') --}}
 
 
 @livewireScripts

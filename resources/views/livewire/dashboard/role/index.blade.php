@@ -29,9 +29,9 @@
     {{-- breadcrumb --}}
 
     {{-- form --}}
-    <div x-data="{ open: @entangle('isOpen') }" x-show="open" class="fixed inset-0 flex items-center justify-center z-40">
+    <div x-cloak x-data="{ open: @entangle('isOpen') }" x-show="open" class="fixed inset-0 flex items-center justify-center z-40">
         <div class="fixed inset-0 bg-slate-900 bg-opacity-75" wire:click="closeModal()"></div>
-        <div x-cloak x-show="open" x-transition:enter="transition ease-out duration-100"
+        <div x-show="open" x-transition:enter="transition ease-out duration-100"
             x-transition:enter-start="opacity-0 transform scale-90"
             x-transition:enter-end="opacity-100 transform scale-100"
             x-transition:leave="transition ease-in duration-100"
