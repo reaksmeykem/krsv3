@@ -6,9 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{{ env('APP_NAME') }}</title>
     <link rel="stylesheet" href="{{ asset('plugin/style.css') }}">
-    {{-- humix.com --}}
-    <meta name="humix-site-verification" content="9E0WWlsz29BIbxNkhVNvZzxwx9SOJS" />
-
     {!! seo() !!}
     {{-- google font --}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -44,8 +41,6 @@
     @livewire('front.footer')
     @include('dashboard.plugin.loading')
     @livewireScripts
-
-
 
 </body>
 </html>

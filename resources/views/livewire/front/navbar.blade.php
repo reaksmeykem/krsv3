@@ -11,7 +11,7 @@
                         @foreach($categories as $category)
                             <li><a href="{{ route('get-article-by-category', $category->slug) }}" wire:navigate class="hover:rotate-6 block">{{ $category->name }}</a></li>
                         @endforeach
-                        <li><a href="{{ route('about-me') }}" wire:navigate class="hover:rotate-6 block">អំពីខ្ញុំ</a></li>
+                        <li><a href="{{ route('about-me') }}" wire:navigate class="hover:rotate-6 block">About me</a></li>
 
                     </ul>
                 </div>
@@ -21,7 +21,7 @@
                     <li>
                         <button wire:click="openModal()"><i class="fa-solid fa-magnifying-glass"></i></button>
                     </li>
-                    <li class="hidden md:block"><a href="#" class="bg-[#F4CE14] rounded px-4 py-2">ចូល</a></li>
+                    <li class="hidden md:block"><a href="#" class="bg-[#F4CE14] rounded px-4 py-2">Login</a></li>
                 </ul>
             </div>
         </div>
@@ -35,7 +35,7 @@
                 <div>
                     <div class="flex justify-between items-start">
                         <div>
-                            ស្វែងរក
+                            Search
                         </div>
                         <div class="sm:flex sm:flex-row-reverse">
                             <button type="button" wire:click="closeModal()"
@@ -51,9 +51,9 @@
                         </div>
                         <div class="mt-4">
                             @if($results === null)
-                                <p>បញ្ចូលពាក្យដើម្បីស្វែងរក</p>
+                                <p>Please enter a keyword to begin your search.</p>
                             @elseif($results->isEmpty())
-                                <p>រកមិនឃើញ</p>
+                                <p>No results found</p>
                             @else
                                 <div>
                                     @foreach($results as $article)

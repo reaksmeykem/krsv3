@@ -1,5 +1,5 @@
 <div>
-    <button type="button" wire:click.prevent="openModal()" class="font-bold cursor-pointer underline text-[15px]">ស្វែង​យល់​បន្ថែម</button>
+    <button type="button" wire:click.prevent="openModal()" class="font-bold cursor-pointer underline text-[15px]">Learn More</button>
 
 <template x-teleport="body">
 
@@ -17,19 +17,17 @@
                 </button>
             </div>
             <div class="prose prose-slate prose-xl">
-                <h2 class="text-3xl font-bold mb-4">គោលការណ៍ Cookie Policy</h2>
-                <p>ប្រភេទនៃ Cookies ដែលយើងប្រើ</p>
-                <p>នៅក្នុងគេហទំព័ររបស់យើង, យើងប្រើប្រាស់ cookies ដើម្បីធ្វើឲ្យការប្រើប្រាស់របស់អ្នកមានភាពងាយស្រួល និងប្រសើរឡើង។ cookies គឺជាឯកសារតូចៗដែលត្រូវបានផ្ទុកនៅលើឧបករណ៍របស់អ្នក។</p>
-                <h5 class="font-bold">១. Essential Cookies:</h5>
-                <p>Cookies ទាំងនេះត្រូវការសម្រាប់ការប្រើប្រាស់គេហទំព័រដោយសម្រួល និងឧបត្ថម្ភបច្ចេកទេសដូចជាការចូលប្រើប្រាស់សេវាកម្ម។</p>
-                <h5 class="font-bold">២. Analytics Cookies:</h5>
-                <p>យើងប្រើប្រាស់ Cookies សម្រាប់ការវិភាគដើម្បីប្រមូលព័ត៌មានអំពីការប្រើប្រាស់គេហទំព័ររបស់អ្នក។ វាជួយយើងក្នុងការយល់ដឹងអំពីរបៀបដែលអ្នកប្រើប្រាស់គេហទំព័រ និងការកែលម្អបទពិសោធន៍របស់អ្នក។</p>
-                <h5 class="font-bold">ការកំណត់ cookies</h5>
-                <p>អ្នកអាចចាត់ចែងការប្រើប្រាស់ cookies បានតាមការកំណត់នៅក្នុងកម្មវិធីរុករករបស់អ្នក។ យើងសូមអនុញាតឱ្យអ្នកទំនាក់ទំនងមកកាន់យើងប្រសិនបើអ្នកមានសំណួរឬការចងចាំទាក់ទងនឹងគោលការណ៍ cookies នេះ។</p>
-                <h5 class="font-bold">ការប្រតិបត្តិការណ៍កែប្រែ</h5>
-                <p>យើងអាចធ្វើការកែប្រែគោលការណ៍ cookies នេះនៅពេលណាមួយដោយមិនប្រកាសជាផ្លូវការ។ សូមពិនិត្យមើលទំព័រនេះជាប្រចាំដើម្បីទទួលបានព័ត៌មានបច្ចុប្បន្នភាព។</p>
-                <h5 class="font-bold">ទំនាក់ទំនង</h5>
-                <p>សម្រាប់ព័ត៌មានបន្ថែមអំពីគោលការណ៍ cookies របស់យើង, សូមទំនាក់ទំនងមកកាន់: kemreaksmey444@gmail.com</p>
+                <h2 class="text-3xl font-bold mb-4">Cookie Policy</h2>
+                <p>Types of Cookies We Use</p>
+                <p>On our website, we use cookies to make your experience more convenient and improved. Cookies are small files that are stored on your device.</p>
+                <h5 class="font-bold">Essential Cookies:</h5>
+                <p>These cookies are necessary for the website to function efficiently. We do not collect information from users; we only want to improve our website.</p>
+                <h5 class="font-bold">Cookie Settings</h5>
+                <p>You can manage the use of cookies through your browser settings. Please feel free to contact us if you have any questions or concerns regarding this cookie policy.</p>
+                <h5 class="font-bold">Policy Changes</h5>
+                <p>We may update this cookie policy at any time without prior notice. Please check this page regularly to stay informed of any updates.</p>
+                <h5 class="font-bold">Contact</h5>
+                <p>For more information about our cookie policy, please contact: kemreaksmey444@gmail.com</p>
             </div>
         </div>
     </div>

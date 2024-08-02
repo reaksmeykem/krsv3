@@ -2,8 +2,9 @@
     <div class="py-20">
         <section class="md:grid md:grid-cols-3 lg:gap-6 px-6 lg:px-0">
             <div class="col-span-2">
-                <h1 class="text-3xl font-black text-center md:text-start">សួស្តី, ខ្ញុំឈ្មោះរស្មី</h1>
-                <p class="leading-9 mt-6 text-xl text-center md:text-start">ខ្ញុំជាអ្នកអភិវឌ្ឍន៍កម្មវិធី។ ខ្ញុំចូលចិត្ត<span class="half-bg">បច្ចេកវិទ្យា</span> និង<span class="half-bg">ការសរសេរកម្មវិធី</span>។ ខ្ញុំរីករាយក្នុងការសរសេរអំពីរឿងទាំងអស់នេះ ក៏ដូចជាបង្កើតវីដេអូខ្លីៗស្តីពីការសរសេរកម្មវិធីនៅលើ <span class="half-bg"><a target="_blank" href="https://www.youtube.com/@reaksmeykemofficail">YouTube</a></span> របស់ខ្ញុំ។</p>
+                <h1 class="text-3xl font-black text-center md:text-start">Hi, I'm Reaksmey</h1>
+                <p class="leading-9 mt-6 text-xl text-center md:text-start">
+                    I am a software developer with a passion for <span class="half-bg">technology</span> and <span class="half-bg">coding</span>. I enjoy writing about these topics and creating short videos about programming on my <span class="half-bg"><a target="_blank" href="https://www.youtube.com/@reaksmeykemofficail">YouTube</a></span> channel.
                 <ul class="flex items-center justify-center md:justify-start space-x-6 mt-6">
                     <li><a target="_blank" href="https://web.facebook.com/kemreaksmeyreal"><i class="fa-brands fa-facebook text-3xl text-slate-700 hover:text-[#F4CE14]"></i></a></li>
                     <li><a target="_blank" href="https://www.youtube.com/@reaksmeykemofficail"><i class="fa-brands fa-youtube text-3xl text-slate-700 hover:text-[#F4CE14]"></i></a></li>
