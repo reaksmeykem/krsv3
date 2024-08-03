@@ -7,7 +7,6 @@
                 </div>
                 <div class="mx-8">
                     <ul class="flex space-x-6 navbar">
-                        {{-- <li><a href="">ទំព័រដើម</a></li> --}}
                         @foreach($categories as $category)
                             <li><a href="{{ route('get-article-by-category', $category->slug) }}" wire:navigate class="hover:rotate-6 block">{{ $category->name }}</a></li>
                         @endforeach
