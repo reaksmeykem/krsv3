@@ -6,7 +6,7 @@
         <div class="space-y-6">
             @foreach($latestArticles as $article)
                 <div class="block space-y-2 md:flex md:items-center md:space-x-10">
-                    <div>
+                    <div class="min-w-[80px]">
                         <span>{{ Carbon\Carbon::create($article->published_at)->format('F d, Y')  }}</span>
                     </div>
                     <div>
@@ -23,7 +23,7 @@
         <div class="space-y-6">
             @foreach($articles as $article)
                 <div class="block space-y-2 md:flex md:items-center md:space-x-10">
-                    <span>{{ Carbon\Carbon::create($article->published_at)->format('F d, Y')  }}</span>
+                    <span class="min-w-[80px]">{{ Carbon\Carbon::create($article->published_at)->format('F d, Y')  }}</span>
                     <div>
                         <a href="{{ route('post.detail', [$article->category->slug, $article->slug]) }}" wire:navigate><h3 class="text-xl hover:text-[#F4CE14]">{{ $article->title }}</h3></a>
                     </div>
@@ -38,7 +38,7 @@
         <div class="space-y-6">
             @foreach($projects as $article)
                 <div class="block space-y-2 md:flex md:items-center md:space-x-10">
-                    <span>{{ Carbon\Carbon::create($article->published_at)->format('F d, Y')  }}</span>
+                    <span class="min-w-[80px]">{{ Carbon\Carbon::create($article->published_at)->format('F d, Y')  }}</span>
                     <div>
                         <a href="{{ route('post.detail', [$article->category->slug, $article->slug]) }}" wire:navigate><h3 class="text-xl hover:text-[#F4CE14]">{{ $article->title }}</h3></a>
                     </div>
@@ -53,7 +53,7 @@
         <div class="space-y-6">
             @foreach($videos as $article)
                 <div class="block space-y-2 md:flex md:items-center md:space-x-10">
-                    <span>{{ Carbon\Carbon::create($article->published_at)->format('F d, Y')  }}</span>
+                    <span class="min-w-[80px]">{{ Carbon\Carbon::create($article->published_at)->format('F d, Y')  }}</span>
                     <div>
                         <a href="{{ route('post.detail', [$article->category->slug, $article->slug]) }}" wire:navigate><h3 class="text-xl hover:text-[#F4CE14]">{{ $article->title }}</h3></a>
                     </div>
