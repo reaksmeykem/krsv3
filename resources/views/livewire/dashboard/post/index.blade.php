@@ -57,6 +57,7 @@
                     <tr>
                         <th>ID</th>
                         <th>គម្រប</th>
+                        <th>Views</th>
                         <th scope="col" class="px-6 py-3">ចំណងជើង</th>
                         <th scope="col" class="px-6 py-3">ប្រភេទ</th>
                         <th scope="col" class="px-6 py-3">កាលបរិច្ឆេទផ្សាយ</th>
@@ -74,6 +75,7 @@
                         <td>
                             <img class="w-10 rounded" src="{{ Storage::url($post->thumbnail_path) }}" alt="">
                         </td>
+                        <td>{{ $post->view_count }}</td>
                         <td scope="row"
                             class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">
                             {{ $post->title }}
