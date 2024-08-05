@@ -5,12 +5,22 @@
         </div>
         <div>
             @foreach($latestArticles as $article)
-                <div class="block space-y-2 md:flex mb-6">
-                    <div style="width:180px;" class="mr-4">
-                        <span>{{ Carbon\Carbon::create($article->published_at)->format('F d, Y')  }}</span>
+                <div class="mb-6 grid grid-cols-3 gap-3">
+
+                    <div class="col-span-2">
+                        <div class="mb-2">
+                            <a href="{{ route('post.detail', [$article->category->slug, $article->slug]) }}" wire:navigate>
+                                <h3 class="text-2-line text-xl font-bold hover:text-[#F4CE14]">{{ $article->title }}</h3>
+                            </a>
+                            <p class="mt-3 text-1-line text-slate-500">{{ $article->excerpt }}</p>
+                        </div>
+                        <div>
+                            <small class="text-slate-500">{{ Carbon\Carbon::create($article->published_at)->format('F d, Y')  }}</small>
+                        </div>
+
                     </div>
                     <div>
-                        <a href="{{ route('post.detail', [$article->category->slug, $article->slug]) }}" wire:navigate><h3 class="text-xl hover:text-[#F4CE14]">{{ $article->title }}</h3></a>
+                        <img class="w-full" style="aspect-ratio:16/9;" src="{{ Storage::url($article->thumbnail_path) }}" alt="{{ $article->thumbnail_path }}">
                     </div>
                 </div>
             @endforeach
@@ -22,14 +32,24 @@
         </div>
         <div>
             @foreach($articles as $article)
-                <div class="block space-y-2 md:flex mb-6">
-                    <div style="width:180px;" class="mr-4">
-                        <span>{{ Carbon\Carbon::create($article->published_at)->format('F d, Y')  }}</span>
+            <div class="mb-6 grid grid-cols-3 gap-3">
+
+                <div class="col-span-2">
+                    <div class="mb-2">
+                        <a href="{{ route('post.detail', [$article->category->slug, $article->slug]) }}" wire:navigate>
+                            <h3 class="text-2-line text-xl font-bold hover:text-[#F4CE14]">{{ $article->title }}</h3>
+                        </a>
+                        <p class="mt-3 text-1-line text-slate-500">{{ $article->excerpt }}</p>
                     </div>
                     <div>
-                        <a href="{{ route('post.detail', [$article->category->slug, $article->slug]) }}" wire:navigate><h3 class="text-xl hover:text-[#F4CE14]">{{ $article->title }}</h3></a>
+                        <small class="text-slate-500">{{ Carbon\Carbon::create($article->published_at)->format('F d, Y')  }}</small>
                     </div>
+
                 </div>
+                <div>
+                    <img class="w-full" style="aspect-ratio:16/9;" src="{{ Storage::url($article->thumbnail_path) }}" alt="{{ $article->thumbnail_path }}">
+                </div>
+            </div>
             @endforeach
         </div>
     </section>
@@ -39,14 +59,24 @@
         </div>
         <div>
             @foreach($projects as $article)
-                <div class="block space-y-2 md:flex mb-6">
-                    <div style="width:180px;" class="mr-4">
-                        <span>{{ Carbon\Carbon::create($article->published_at)->format('F d, Y')  }}</span>
+            <div class="mb-6 grid grid-cols-3 gap-3">
+
+                <div class="col-span-2">
+                    <div class="mb-2">
+                        <a href="{{ route('post.detail', [$article->category->slug, $article->slug]) }}" wire:navigate>
+                            <h3 class="text-2-line text-xl font-bold hover:text-[#F4CE14]">{{ $article->title }}</h3>
+                        </a>
+                        <p class="mt-3 text-1-line text-slate-500">{{ $article->excerpt }}</p>
                     </div>
                     <div>
-                        <a href="{{ route('post.detail', [$article->category->slug, $article->slug]) }}" wire:navigate><h3 class="text-xl hover:text-[#F4CE14]">{{ $article->title }}</h3></a>
+                        <small class="text-slate-500">{{ Carbon\Carbon::create($article->published_at)->format('F d, Y')  }}</small>
                     </div>
+
                 </div>
+                <div>
+                    <img class="w-full" style="aspect-ratio:16/9;" src="{{ Storage::url($article->thumbnail_path) }}" alt="{{ $article->thumbnail_path }}">
+                </div>
+            </div>
             @endforeach
         </div>
     </section>
@@ -56,14 +86,24 @@
         </div>
         <div>
             @foreach($videos as $article)
-                <div class="block space-y-2 md:flex mb-6">
-                    <div style="width:180px;" class="mr-4">
-                        <span>{{ Carbon\Carbon::create($article->published_at)->format('F d, Y')  }}</span>
+            <div class="mb-6 grid grid-cols-3 gap-3">
+
+                <div class="col-span-2">
+                    <div class="mb-2">
+                        <a href="{{ route('post.detail', [$article->category->slug, $article->slug]) }}" wire:navigate>
+                            <h3 class="text-2-line text-xl font-bold hover:text-[#F4CE14]">{{ $article->title }}</h3>
+                        </a>
+                        <p class="mt-3 text-1-line text-slate-500">{{ $article->excerpt }}</p>
                     </div>
                     <div>
-                        <a href="{{ route('post.detail', [$article->category->slug, $article->slug]) }}" wire:navigate><h3 class="text-xl hover:text-[#F4CE14]">{{ $article->title }}</h3></a>
+                        <small class="text-slate-500">{{ Carbon\Carbon::create($article->published_at)->format('F d, Y')  }}</small>
                     </div>
+
                 </div>
+                <div>
+                    <img class="w-full" style="aspect-ratio:16/9;" src="{{ Storage::url($article->thumbnail_path) }}" alt="{{ $article->thumbnail_path }}">
+                </div>
+            </div>
             @endforeach
         </div>
     </section>

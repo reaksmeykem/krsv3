@@ -75,3 +75,23 @@ body{
 .scrollbar-custom::-webkit-scrollbar-thumb:hover {
     background: #F4CE14;
 }
+
+/* text */
+.text-2-line{
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+.text-3-line{
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+.text-1-line{
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+}
