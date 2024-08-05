@@ -5,7 +5,7 @@
         </div>
         <div>
             @foreach($latestArticles as $article)
-                <div class="mb-6 grid grid-cols-3 gap-3 border-t border-dashed pt-6">
+                <div class="mb-6 grid grid-cols-3 gap-3 border-t border-dashed" style="padding-top:1.4rem;">
 
                     <div class="col-span-2">
                         <div class="mb-2">
@@ -20,7 +20,9 @@
 
                     </div>
                     <div>
-                        <img class="w-full" style="aspect-ratio:16/9;" src="{{ Storage::url($article->thumbnail_path) }}" alt="{{ $article->thumbnail_path }}">
+                        <a href="{{ route('post.detail', [$article->category->slug, $article->slug]) }}" wire:navigate>
+                            <img class="w-full" style="aspect-ratio:16/9;" src="{{ Storage::url($article->thumbnail_path) }}" alt="{{ $article->thumbnail_path }}">
+                        </a>
                     </div>
                 </div>
             @endforeach
