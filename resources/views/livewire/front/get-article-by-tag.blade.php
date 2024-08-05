@@ -3,14 +3,14 @@
         <h3 class="text-4xl font-black leading-[48px] mb-8">{{ $tagName }}</h3>
         <div>
             @foreach($posts as $article)
-            <div class="mb-6 grid grid-cols-3 gap-3">
+            <div class="mb-6 grid grid-cols-3 gap-3 border-t border-dashed pt-6">
 
                 <div class="col-span-2">
                     <div class="mb-2">
                         <a href="{{ route('post.detail', [$article->category->slug, $article->slug]) }}" wire:navigate>
                             <h3 class="text-2-line text-xl font-bold hover:text-[#F4CE14]">{{ $article->title }}</h3>
                         </a>
-                        <p class="mt-3 text-1-line text-slate-500">{{ $article->excerpt }}</p>
+                        <p class="mt-3 text-2-line text-[16px] text-slate-500">{{ $article->excerpt }}</p>
                     </div>
                     <div>
                         <small class="text-slate-500">{{ Carbon\Carbon::create($article->published_at)->format('F d, Y')  }}</small>
