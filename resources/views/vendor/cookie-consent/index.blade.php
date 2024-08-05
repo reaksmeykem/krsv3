@@ -5,9 +5,9 @@
     <div class="js-cookie-consent cookie-consent fixed justify-center w-screen bottom-0 inset-x-0 pb-2">
         <div class="max-screen mx-auto px-6 backdrop-blur-2xl">
             <div class="p-3" style="max-width:900px;margin:0 auto;">
-                <div class="flex items-center justify-between flex-wrap md:flex-nowrap" style="display:flex;">
+                <div class="flex items-center justify-between flex-wrap md:flex-nowrap" style="display:flex; justify-content:space-between;">
                     <div class="flex items-center md:inline">
-                        <div class="flex flex-wrap text-black text-[15px] cookie-consent__message">
+                        <div class="flex flex-wrap text-black text-[15px] cookie-consent__message" style="font-size:15px;">
                             <p class="mr-2">Allowing cookies will enhance your experience on this website. We never collect your information.</p> @livewire('cookie-button')
                         </div>
                     </div>
