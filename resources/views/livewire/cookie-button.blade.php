@@ -8,7 +8,7 @@
         <div class="fixed inset-0 bg-slate-900 bg-opacity-75" wire:click="closeModal()"></div>
         <div x-cloak x-show="open"
         x-transition.scale
-            class="bg-white p-6 rounded shadow-lg z-40 w-full max-w-[800px] h-full max-h-[720px] scrollbar-custom overflow-y-auto">
+            class="bg-white p-6 rounded shadow-lg z-40 w-full max-w-[800px] h-full max-h-[720px] scrollbar-custom overflow-y-auto" style="max-width:800px;">
             <div class="flex justify-end w-full">
                 <button @click="open = false" class=" text-gray-500 hover:text-gray-700">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
