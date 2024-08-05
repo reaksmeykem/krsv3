@@ -3,10 +3,10 @@
         <div class="flex justify-between items-center mb-6">
             <div class="text-3xl font-bold">Latest Updates</div>
         </div>
-        <div class="space-y-6">
+        <div>
             @foreach($latestArticles as $article)
-                <div class="block space-y-2 md:flex md:items-center">
-                    <div style="width:140px;" class="mr-4">
+                <div class="block space-y-2 md:flex mb-6">
+                    <div style="width:180px;" class="mr-4">
                         <span>{{ Carbon\Carbon::create($article->published_at)->format('F d, Y')  }}</span>
                     </div>
                     <div>
@@ -20,10 +20,10 @@
         <div class="flex justify-between items-center mb-6">
             <div class="text-3xl font-bold">Articles</div>
         </div>
-        <div class="space-y-6">
+        <div>
             @foreach($articles as $article)
-                <div class="block space-y-2 md:flex md:items-center">
-                    <div style="width:140px;" class="mr-4">
+                <div class="block space-y-2 md:flex mb-6">
+                    <div style="width:180px;" class="mr-4">
                         <span>{{ Carbon\Carbon::create($article->published_at)->format('F d, Y')  }}</span>
                     </div>
                     <div>
@@ -37,10 +37,10 @@
         <div class="flex justify-between items-center mb-6">
             <div class="text-3xl font-bold">Projects</div>
         </div>
-        <div class="space-y-6">
+        <div>
             @foreach($projects as $article)
-                <div class="block space-y-2 md:flex md:items-center">
-                    <div style="width:140px;" class="mr-4">
+                <div class="block space-y-2 md:flex mb-6">
+                    <div style="width:180px;" class="mr-4">
                         <span>{{ Carbon\Carbon::create($article->published_at)->format('F d, Y')  }}</span>
                     </div>
                     <div>
@@ -54,10 +54,10 @@
         <div class="flex justify-between items-center mb-6">
             <div class="text-3xl font-bold">Videos</div>
         </div>
-        <div class="space-y-6">
+        <div>
             @foreach($videos as $article)
-                <div class="block space-y-2 md:flex md:items-center">
-                    <div style="width:140px;" class="mr-4">
+                <div class="block space-y-2 md:flex mb-6">
+                    <div style="width:180px;" class="mr-4">
                         <span>{{ Carbon\Carbon::create($article->published_at)->format('F d, Y')  }}</span>
                     </div>
                     <div>
