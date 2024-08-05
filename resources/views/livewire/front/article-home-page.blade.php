@@ -5,8 +5,8 @@
         </div>
         <div class="space-y-6">
             @foreach($latestArticles as $article)
-                <div class="block space-y-2 md:flex md:items-center md:space-x-8">
-                    <div class="w-[140px]">
+                <div class="block space-y-2 md:flex md:items-center md:space-x-8 lg:space-x-8">
+                    <div style="width:140px;">
                         <span>{{ Carbon\Carbon::create($article->published_at)->format('F d, Y')  }}</span>
                     </div>
                     <div>
