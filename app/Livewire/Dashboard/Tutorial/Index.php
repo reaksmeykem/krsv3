@@ -4,13 +4,17 @@ namespace App\Livewire\Dashboard\Tutorial;
 
 use Livewire\Component;
 use Illuminate\Support\Str;
+use App\Models\Tutorial;
+use Livewire\WithPagination;
 
 class Index extends Component
 {
+    use WithPagination;
     public $isOpen = false;
     public $editing = false;
     public $title;
     public $slug;
+    public $tutorials;
 
     public function openModal()
     {
@@ -29,7 +33,8 @@ class Index extends Component
 
     public function render()
     {
-        return view('livewire.dashboard.tutorial.index')
+        $tutorials = Tutorial::orderBy('id','desc')->paginate(10);
+        return view('livewire.dashboard.tutorial.index', ['tutorials' => $tutorials])
         ->extends('dashboard.master')
         ->section('content');
     }

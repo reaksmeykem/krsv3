@@ -31,5 +31,22 @@
                 @endforeach
             </div>
         </div>
+        <div class="mt-8">
+            <script src="https://giscus.app/client.js"
+                data-repo="reaksmeykem/krsv3"
+                data-repo-id="R_kgDOMcKVtQ"
+                data-category="kemreaksmey.com"
+                data-category-id="DIC_kwDOMcKVtc4Chb8e"
+                data-mapping="pathname"
+                data-strict="0"
+                data-reactions-enabled="1"
+                data-emit-metadata="0"
+                data-input-position="bottom"
+                data-theme="light"
+                data-lang="en"
+                crossorigin="anonymous"
+                async>
+            </script>
+        </div>
     </section>
 </div>

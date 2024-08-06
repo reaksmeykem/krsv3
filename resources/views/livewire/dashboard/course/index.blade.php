@@ -28,11 +28,13 @@
     </nav>
     {{-- end breadcrumb --}}
 
+    {{-- modal --}}
     @include('livewire.dashboard.tutorial.form')
 
     <div class="bg-white p-8 rounded-xl">
         <div class="flex justify-between items-center">
             <div>បញ្ជីការអនុញ្ញាត</div>
+
             <button wire:click="openModal()"
                 class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
                 បង្កើតថ្មី
@@ -57,19 +59,19 @@
                     </tr>
                 </thead>
                 <tbody>
-                    {{-- @foreach($categories as $category)
+                    @foreach($courses as $course)
                     <tr
                         class="bg-white border-b hover:bg-gray-50 ">
                         <td scope="row"
                             class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-                            {{ $category->name }}
+                            {{ $course->title }}
                         </td>
                         <td>
                             {{ $category->slug }}
                         </td>
                         <td>
-                            @if($category->parent)
-                            {{ $category->parent->name }}
+                            @if($course->parent)
+                            {{ $course->parent->name }}
                             @endif
 
                         </td>
@@ -81,19 +83,13 @@
                             @endif
 
                         </td>
-                        <td>
-                            @if($category->is_show == 1)
-                            <span class="bg-green-100 text-green-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300">Yes</span>
-                            @else
-                            <span class="bg-red-100 text-red-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-red-900 dark:text-red-300">No</span>
-                            @endif
-                        </td>
+
                         <td class="px-6 py-4 text-right space-x-2">
-                            <button wire:click="edit({{ $category->id }})" class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-1 px-3 border border-blue-500 hover:border-transparent rounded"><i class="fa-solid fa-pen-to-square"></i></button>
-                            <button onclick="confirmDelete({{ $category->id }})"  class="bg-transparent hover:bg-red-500 text-red-700 font-semibold hover:text-white py-1 px-3 border border-red-500 hover:border-transparent rounded"><i class="fa-solid fa-trash-can"></i></button>
+                            <button wire:click="edit({{ $course->id }})" class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-1 px-3 border border-blue-500 hover:border-transparent rounded"><i class="fa-solid fa-pen-to-square"></i></button>
+                            <button onclick="confirmDelete({{ $course->id }})"  class="bg-transparent hover:bg-red-500 text-red-700 font-semibold hover:text-white py-1 px-3 border border-red-500 hover:border-transparent rounded"><i class="fa-solid fa-trash-can"></i></button>
                         </td>
                     </tr>
-                    @endforeach --}}
+                    @endforeach
                 </tbody>
             </table>
         </div>
@@ -101,7 +97,7 @@
 
 
     <script>
-        function confirmDelete(categoryId) {
+        function confirmDelete(courseId) {
             Swal.fire({
                 title: 'Are you sure?',
                 text: "You won't be able to revert this!",
@@ -112,7 +108,7 @@
                 confirmButtonText: 'Yes, delete it!'
             }).then((result) => {
                 if (result.isConfirmed) {
-                    @this.call('delete', categoryId);
+                    @this.call('delete', courseId);
                 }
             })
         }
@@ -121,7 +117,7 @@
     {{-- generate slug --}}
     <script>
         function generateSlug() {
-            var name = document.getElementById('name').value;
+            var name = document.getElementById('title').value;
             var slug = name.toLowerCase()
                 .replace(/[^a-z0-9]+/g, '-') // Replace non-alphanumeric characters with hyphens
                 .replace(/^-+|-+$/g, ''); // Trim leading and trailing hyphens
@@ -131,12 +127,25 @@
     </script>
 
     <script>
-        new DataTable('#example');
+        document.addEventListener('livewire:load', function () {
+
+            // Initialize the modal
+            const modalElement = document.getElementById('courseModal');
+            const modal = new Modal(modalElement);
+
+            Livewire.on('courseSaved', function () {
+                // Close modal when a post is saved or deleted
+                modal.hide();
+            });
+
+            window.addEventListener('show-modal', function () {
+                modal.show();
+            });
+
+            window.addEventListener('hide-modal', function () {
+                modal.hide();
+            });
+        });
     </script>
-    <link rel="stylesheet" href="https://cdn.datatables.net/2.1.2/css/dataTables.tailwindcss.css">
-    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
-    <script src="https://cdn.datatables.net/2.1.2/js/dataTables.js"></script>
-    <script src="https://cdn.datatables.net/2.1.2/js/dataTables.tailwindcss.js"></script>
 
 </div>
-

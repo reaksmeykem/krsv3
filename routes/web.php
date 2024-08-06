@@ -48,6 +48,8 @@ Route::middleware(['auth', 'role_or_permission:view category|create category|edi
 Route::get('admin/book/index' ,App\Livewire\Dashboard\Book\Index::class)->name('book.index');
 Route::get('admin/book/create' ,App\Livewire\Dashboard\Book\Create::class)->name('book.create');
 
+Route::get('admin/course/index', App\Livewire\Dashboard\Course\Index::class)->name('course.index');
+
 use App\Http\Controllers\PostController;
 // Route::get('/admin/post/index', [PostController::class,'index'])->name('post.index');
 // Route::get('/admin/post/create', [PostController::class,'create'])->name('post.create');
