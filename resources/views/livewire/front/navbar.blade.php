@@ -49,7 +49,7 @@
         <div class="fixed inset-0 bg-slate-900 bg-opacity-75" wire:click="closeModal()"></div>
             <div x-show="open"
                 x-transition.scale
-                class="bg-white p-6 rounded shadow-lg z-10 m-8 w-full lg:max-w-[700px] overflow-y-auto max-h-screen">
+                class="bg-white p-6 rounded shadow-lg z-10 m-8 w-full lg:max-w-[700px] overflow-y-auto max-h-[900px]">
                 <div>
                     <div class="flex justify-between items-start">
                         <div>
