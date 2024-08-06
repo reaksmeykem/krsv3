@@ -2,10 +2,11 @@
     <div class="py-5 border-b sticky top-0 backdrop-blur-2xl px-6 lg:px-0 z-40">
         <div class="flex items-center justify-between max-w-screen-md mx-auto">
             <div class="flex items-center">
+
                 <div>
                     <a href="{{ route('home') }}" wire:navigate class="text-3xl font-black">K<span class="text-[#F4CE14]">RS</span></a>
                 </div>
-                <div class="mx-8">
+                <div class="mx-8 md:block hidden">
                     <ul class="flex space-x-6 navbar">
                         @foreach($categories as $category)
                             <li><a href="{{ route('get-article-by-category', $category->slug) }}" wire:navigate class="hover:rotate-6 block">{{ $category->name }}</a></li>
@@ -15,13 +16,31 @@
                     </ul>
                 </div>
             </div>
-            <div>
+            <div class="flex items-center">
                 <ul class="flex space-x-6">
                     <li>
                         <button wire:click="openModal()"><i class="fa-solid fa-magnifying-glass"></i></button>
                     </li>
-                    <li class="hidden md:block"><a href="#" class="bg-[#F4CE14] rounded px-4 py-2">Login</a></li>
+                    <li><a href="#" class="bg-[#F4CE14] rounded px-4 py-2">Login</a></li>
+
                 </ul>
+                <div class="block md:hidden">
+                    <div x-cloak x-data="{ open: false }" class="relative inline-block text-left">
+                        <button @click="open = ! open" type="button" class="ml-[15px] border rounded px-4 py-1">
+                            <i class="fa-solid fa-bars"></i>
+                        </button>
+                        <div x-show="open" @click.outside="open = false" class="absolute right-0 z-10 mt-2  origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none" aria-orientation="vertical" tabindex="-1">
+                            <div>
+                                <ul class="block space-y-6 navbar p-6 min-w-[135px]">
+                                    @foreach($categories as $category)
+                                        <li><a href="{{ route('get-article-by-category', $category->slug) }}" wire:navigate class="hover:rotate-6 block">{{ $category->name }}</a></li>
+                                    @endforeach
+                                    <li><a href="{{ route('about-me') }}" wire:navigate class="hover:rotate-6 block">About me</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -72,7 +91,5 @@
 
     </div>
     {{-- end search form --}}
-    @include('dashboard.mobile-menu')
-
     @include('cookie-consent::index')
 </div>
