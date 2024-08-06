@@ -67,7 +67,7 @@
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-l-lg outline-none focus:ring-[#F4CE14] focus:border-[#F4CE14] block w-full p-2.5 "
                                 placeholder="Enter anything..." />
                         </div>
-                        <div class="mt-4">
+                        <div class="my-6 max-h-96 scrollbar-custom overflow-y-scroll">
                             @if($results === null)
                                 <p>Please enter a keyword to begin your search.</p>
                             @elseif($results->isEmpty())
