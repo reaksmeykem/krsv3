@@ -75,7 +75,7 @@
                             @else
                                 <div>
                                     @foreach($results as $article)
-                                        <div class="mb-3">
+                                        <div class="mb-4 border-t pt-4 border-dashed">
                                             <a href="{{ route('post.detail', [$article->category->slug, $article->slug]) }}" wire:navigate>
                                             <h3 class="text-xl hover:text-[#F4CE14]">{{ $article->title }}</h3>
                                             </a>
