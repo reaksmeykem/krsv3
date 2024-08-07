@@ -5,9 +5,13 @@ namespace App\Livewire\Front;
 use Livewire\Component;
 use App\Models\Category;
 use App\Models\Post;
+use Livewire\WithPagination;
 
 class Navbar extends Component
 {
+
+    use WithPagination;
+
     public $categories;
     public $postAboutMe;
 
@@ -15,26 +19,26 @@ class Navbar extends Component
     public $isOpen = false;
 
     public $searchTerm;
-    public $results = null;
+    public $perPage = 5;
+    // public $results = null;
 
-    public function updatedSearchTerm()
-    {
-        if (empty($this->searchTerm)) {
-            $this->results = null;
-        } else {
-            $this->results = Post::where('title', 'like', '%' . $this->searchTerm . '%')
-            ->orWhere('body','like','%' .$this->searchTerm .'%')
-            ->orWhereHas('tags', function ($query) {
-                $query->where('name', 'like', '%' . $this->searchTerm . '%');
-            })->get();
-        }
+    // public function updatedSearchTerm()
+    // {
+    //     if (empty($this->searchTerm)) {
+    //         $this->results = null;
+    //     } else {
+    //         $this->results = Post::where('title', 'like', '%' . $this->searchTerm . '%')
+    //         ->orWhere('body','like','%' .$this->searchTerm .'%')
+    //         ->orWhereHas('tags', function ($query) {
+    //             $query->where('name', 'like', '%' . $this->searchTerm . '%');
+    //         })->get();
+    //     }
 
-    }
+    // }
 
     public function resetSearch()
     {
         $this->searchTerm = '';
-        $this->results = null;
     }
 
 
@@ -57,10 +61,24 @@ class Navbar extends Component
 
     }
 
+    public function loadMore(){
+        $this->perPage += 5;
+    }
+
 
     public function render()
     {
 
-        return view('livewire.front.navbar');
+        if (empty($this->searchTerm)) {
+            $results = null;
+        } else {
+            $results = Post::where('title', 'like', '%' . $this->searchTerm . '%')
+            ->orWhere('body','like','%' .$this->searchTerm .'%')
+            ->orWhereHas('tags', function ($query) {
+                $query->where('name', 'like', '%' . $this->searchTerm . '%');
+            })->paginate($this->perPage);
+        }
+
+        return view('livewire.front.navbar', ['results' => $results]);
     }
 }
