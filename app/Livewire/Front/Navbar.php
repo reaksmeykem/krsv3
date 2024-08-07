@@ -19,7 +19,7 @@ class Navbar extends Component
     public $isOpen = false;
 
     public $searchTerm;
-    public $perPage = 5;
+    public $perPage = 10;
     // public $results = null;
 
     // public function updatedSearchTerm()

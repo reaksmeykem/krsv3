@@ -12,7 +12,7 @@ class ArticleHomePage extends Component
     public $articles;
     public $projects;
     public $videos;
-    public $perPage = 5;
+    public $perPage = 10;
 
 
     use WithPagination;
