@@ -16,10 +16,10 @@
                 </div>
             </div>
         </div>
-        <div class="my-8">
+        {{-- <div class="my-8">
             <img class="w-full rounded-xl shadow-md" src="{{ $thumbnail }}" alt="">
-        </div>
-        <div class="prose prose-slate prose-xl prose-ul:list-disc prose-li pt-8">
+        </div> --}}
+        <div class="prose prose-slate prose-xl prose-ul:list-disc prose-li">
             {!! $body !!}
         </div>
         <div class="mt-8">
