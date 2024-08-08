@@ -13,6 +13,7 @@ use App\Models\User;
 use App\Models\Post;
 use App\Models\Tag;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class PostForm extends Component
 {
@@ -193,6 +194,15 @@ class PostForm extends Component
             'thumbnail_path' => $storagePath,
             'ordering' => $this->order
         ]);
+
+        // $post->addSEO([]);
+        $post->seo->update([
+            'title' => $post->meta_title ? $post->meta_title : $this->title,
+            'description' => $post->meta_description ? $post->meta_description : $this->excerpt,
+            'author' => Auth::user()->name,
+            'image' => $this->thumbnail ? Storage::url($post->thumbnail_path) : null,
+            'canonical_url' => $post->slug,
+         ]);
 
         // add tags
         $tagIds = [];

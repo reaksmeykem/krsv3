@@ -47,6 +47,8 @@ class PostDetail extends Component
         $this->author = $post->user->name;
         $this->userAvatar = Storage::url($post->user->photo);
         $this->thumbnail = Storage::url($post->thumbnail_path);
+        $this->seo = $post->seo;
+
     }
 
     public function render()
