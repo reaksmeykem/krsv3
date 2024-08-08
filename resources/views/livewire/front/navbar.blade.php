@@ -92,6 +92,8 @@
                                             <span class="sr-only">Loading...</span>
                                         </span>
                                         <button wire:click.prevent="loadMore">Load more</button>
+                                    @else
+                                        <div class="text-slate-300">No more posts</div>
                                     @endif
                                 </div>
                             @endif

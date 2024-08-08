@@ -39,7 +39,7 @@
                 </span>
                 <button wire:click.prevent="loadMore">Load more</button>
             @else
-                <div class="text-slate-300">No more articles</div>
+                <div class="text-slate-300">No more posts</div>
             @endif
         </div>
     </section>
