@@ -19,7 +19,7 @@
         {{-- <div class="my-8">
             <img class="w-full rounded-xl shadow-md" src="{{ $thumbnail }}" alt="">
         </div> --}}
-        <div class="prose prose-slate prose-xl prose-ul:list-disc prose-li">
+        <div class="prose prose-code:text-lg prose-slate prose-xl prose-ul:list-disc prose-li">
             {!! $body !!}
         </div>
         <div class="mt-8">
