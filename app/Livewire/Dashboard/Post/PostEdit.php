@@ -185,6 +185,15 @@ class PostEdit extends Component
             'ordering' => $this->order
         ]);
 
+        $post->seo->update([
+            'title' => $post->meta_title ? $post->meta_title : $this->title,
+            'description' => $post->meta_description ? $post->meta_description : $this->excerpt,
+            'author' => Auth::user()->name,
+            'image' => $this->thumbnil ? Storage::url($post->thumbnail_path) : null,
+            'canonical_url' => $post->slug,
+         ]);
+
+
         if($this->tags != null){
             // add tags
             $tagIds = [];
