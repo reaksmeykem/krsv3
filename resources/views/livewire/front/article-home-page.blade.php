@@ -17,7 +17,7 @@
                         </a>
                     </div>
                     <div class="col-span-2 py-4">
-                       
+
                         <div class="mb-2">
                             <a href="{{ route('post.detail', [$article->category->slug, $article->slug]) }}" wire:navigate>
                                 <h3 class="text-2-line text-xl hover:text-[#F4CE14]">{{ $article->title }}</h3>
@@ -31,7 +31,7 @@
                 </div>
             @endforeach
         </div>
-        @if($countPosts > 10)
+        @if($countPosts >= 10)
             <div class="text-center mt-[60px]">
                 @if($latestArticles->hasMorePages())
                     <span role="status" wire:loading wire:target="loadMore" class="ml-2">
