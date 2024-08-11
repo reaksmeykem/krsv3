@@ -4,7 +4,6 @@ namespace App\Livewire\Dashboard\Permission;
 
 use Livewire\Component;
 use Spatie\Permission\Models\Permission;
-
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\WithPagination;
 
@@ -13,20 +12,28 @@ class Index extends Component
     use LivewireAlert;
     use WithPagination;
 
-    public $permissions;
+    // public $permissions;
     public $name;
     public $permissionId;
     public $editing = false;
     public $perPage = 10;
-
+    public $termSearch = '';
 
     public $isOpen = false;
 
+    protected $listeners = ['refresh' => '$refresh'];
+
+    public function updatedPerPage($value)
+    {
+        $this->perPage = (int) $value; // Ensure the perPage is an integer
+        $this->resetPage(); // Reset pagination to the first page
+    }
+
+    public $perPageOptions = [10, 25, 50, 100];
 
     public function openModal()
     {
         $this->isOpen = true;
-
     }
 
 
@@ -49,12 +56,10 @@ class Index extends Component
     protected $rules = [
         'name' => 'required|max:225'
      ];
-     public function loadPermissions(){
-        $this->permissions = Permission::latest()->get();
+     public function loadMorePermissions(){
+        $this->perPage += 10;
      }
-    public function mount(){
-        $this->loadPermissions();
-    }
+
     public function save()
     {
 
@@ -73,9 +78,12 @@ class Index extends Component
             'name' => $this->name
         ]);
 
-        $this->mount();
+        // $this->mount();
+        $this->dispatch('refresh')
+            ->component('dashboard.permission.index');
         $this->resetForm();
         $this->closeModal();
+
 
         $this->alert('success','Permission created successfully', [
             'position' => 'top-end',
@@ -102,9 +110,12 @@ class Index extends Component
         $permission->update([
             'name' => $this->name
         ]);
-        $this->mount();
+        // $this->mount();
+        $this->dispatch('refresh')
+            ->component('dashboard.permission.index');
         $this->resetForm();
         $this->closeModal();
+
 
         $this->alert('success','Permission update successfully', [
             'position' => 'top-end',
@@ -116,8 +127,10 @@ class Index extends Component
 
     public function delete($id){
         Permission::find($id)->delete();
-        $this->mount();
+        // $this->mount();
         $this->resetForm();
+        $this->dispatch('refresh')
+            ->component('dashboard.permission.index');
         $this->alert('success','Permission deleted successfully', [
             'position' => 'top-end',
             'timer' => 3000,
@@ -128,7 +141,17 @@ class Index extends Component
 
     public function render()
     {
-        return view('livewire.dashboard.permission.index')
+
+        $totalPermissions = Permission::all()->count();
+        $permissions = Permission::latest()
+            ->where('name', 'like', '%' . $this->termSearch . '%')
+            ->paginate($this->perPage);
+        $countPermissions = count($permissions);
+        return view('livewire.dashboard.permission.index', [
+            'permissions' => $permissions,
+            'countPermissions' => $countPermissions,
+            'totalPermissions' => $totalPermissions
+        ])
         ->extends('dashboard.master')
         ->section('content');
     }

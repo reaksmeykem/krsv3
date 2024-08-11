@@ -62,17 +62,18 @@ Route::middleware(['auth', 'role_or_permission:view post|create post|edit post|u
 });
 
 Route::get('/admin/tutorial/index', App\Livewire\Dashboard\Tutorial\Index::class)->name('tutorial.index');
-
-
-
 Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
     \UniSharp\LaravelFilemanager\Lfm::routes();
 });
 
+Route::get('/sitemap.xml', function () {
+    return response()->file(storage_path('app/public/sitemap.xml'));
+})->name('sitemap');
 //fontend
 
 // use App\Http\Controllers\ArticleController;
 // Route::get('{categorySlug}/{slug}', [ArticleController::class, 'detail'])->name('post.detail');
+
 use App\Livewire\Front\Home;
 Route::get('/', Home::class)->name('home');
 use App\Livewire\Front\AboutMe;
@@ -83,4 +84,6 @@ use App\Livewire\Front\GetArticleByTag;
 Route::get('tag/{tagSlug}/', GetArticleByTag::class)->name('get-article-by-tag');
 use App\Livewire\Front\PostDetail;
 Route::get('{categorySlug}/{postSlug}', PostDetail::class)->name('post.detail');
+
+
 

@@ -62,10 +62,17 @@
                 <div x-show="open" @click.outside="open = false" class="absolute right-0 z-10 mt-2  origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none" aria-orientation="vertical" tabindex="-1">
                   <div class="py-1" role="none">
                     <div class="p-5">
-                        <div>
-                            <label for="">ឈ្មោះអ្នកប្រើប្រាស់</label>
-                            <p class="mb-4 text-sm font-semibold text-gray-900">
-                                {{ Auth::user()->username != null ? '@' . Auth::user()->username : '@username' }}</p>
+                        <div class="flex">
+                            <div class="me-2">
+                                <img class="w-12 h-12 shadow-sm rounded-full border"
+                                    src="{{ Storage::exists(Auth::user()->photo) ? Storage::url(Auth::user()->photo) : Auth::user()->photo }}"
+                                    alt="{{ Auth::user()->name }}">
+                            </div>
+                            <div>
+                                <label for="">{{ Auth::user()->name }}</label>
+                                <p class="mb-4 text-sm font-semibold text-gray-900">
+                                    {{ Auth::user()->username != null ? '@' . Auth::user()->username : '@username' }}</p>
+                            </div>
                         </div>
                         <div>
                             <label for="">អ៊ីម៉ែល</label>

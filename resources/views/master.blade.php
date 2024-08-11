@@ -22,14 +22,19 @@
     </script>
     {{-- end google analytics --}}
 
+    {{-- google ads --}}
+    <meta name="google-adsense-account" content="ca-pub-2402494236829690">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2402494236829690"
+    crossorigin="anonymous"></script>
+
     @vite(['resources/css/app.css','resources/js/app.js'])
     @livewireStyles
 </head>
 <body class=" bg-[#F5F7F8] text-[#45474B]">
 
-    <div id="loading-spinner" class="fixed inset-0 flex items-center justify-center bg-gray-100 bg-opacity-100 z-50">
+    {{-- <div id="loading-spinner" class="fixed inset-0 flex items-center justify-center bg-gray-100 bg-opacity-100 z-50">
         <div class="dual-ring"></div>
-    </div>
+    </div> --}}
 
     @livewire('front.navbar')
 
@@ -39,8 +44,38 @@
 
 
     @livewire('front.footer')
-    @include('dashboard.plugin.loading')
+    {{-- @include('dashboard.plugin.loading') --}}
     @livewireScripts
 
+    {{-- lazyloading image --}}
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const lazyImages = [].slice.call(document.querySelectorAll("img.lazy"));
+
+            if ("IntersectionObserver" in window) {
+                let lazyImageObserver = new IntersectionObserver(function(entries, observer) {
+                    entries.forEach(function(entry) {
+                        if (entry.isIntersecting) {
+                            let lazyImage = entry.target;
+                            lazyImage.src = lazyImage.dataset.src;
+                            lazyImage.classList.remove("lazy");
+                            lazyImageObserver.unobserve(lazyImage);
+                        }
+                    });
+                });
+
+                lazyImages.forEach(function(lazyImage) {
+                    lazyImageObserver.observe(lazyImage);
+                });
+            } else {
+                // Fallback for browsers that don't support IntersectionObserver
+                // Load all images immediately
+                lazyImages.forEach(function(lazyImage) {
+                    lazyImage.src = lazyImage.dataset.src;
+                    lazyImage.classList.remove("lazy");
+                });
+            }
+        });
+        </script>
 </body>
 </html>

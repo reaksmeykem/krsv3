@@ -51,6 +51,9 @@
         </div>
 
         {{-- table --}}
+
+
+
         <div class="relative overflow-x-auto sm:rounded-lg mt-8">
             <table class="w-full">
                 <thead class="text-xs text-gray-700 uppercase bg-gray-50 ">
@@ -78,7 +81,7 @@
                         <td>{{ $post->view_count }}</td>
                         <td scope="row"
                             class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">
-                            {{ $post->title }}
+                            {{ Str::limit($post->title, 60, '...') }}
                         </td>
 
                         <td scope="row"

@@ -6,12 +6,14 @@ use Livewire\Component;
 use App\Models\Category;
 use Illuminate\Support\Str;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
+use Livewire\WithPagination;
 
 class Index extends Component
 {
 
     use LivewireAlert;
-    public $categories;
+    use WithPagination;
+    // public $categories;
     public $editing = false;
     public $name;
     public $slug;
@@ -21,8 +23,21 @@ class Index extends Component
     public $description;
     public $categoryId;
     public $parent_categories;
+    public $perPage = 10;
+    public $termSearch = '';
 
     public $isOpen = false;
+
+    protected $listeners = ['refresh' => '$refresh'];
+
+    public function updatedPerPage($value)
+    {
+        $this->perPage = (int) $value; // Ensure the perPage is an integer
+        $this->resetPage(); // Reset pagination to the first page
+    }
+
+    public $perPageOptions = [2, 10, 25, 50, 100];
+
 
     public function openModal()
     {
@@ -35,7 +50,7 @@ class Index extends Component
     }
 
     public function mount(){
-        $this->categories = Category::latest()->get();
+
         $this->parent_categories = Category::latest()->get();
     }
 
@@ -78,7 +93,9 @@ class Index extends Component
         ]);
 
 
-        $this->mount();
+        // $this->mount();
+        $this->dispatch('refresh')
+            ->component('dashboard.category.index');
         $this->closeModal();
         $this->resetFields();
 
@@ -128,7 +145,8 @@ class Index extends Component
         ]);
 
 
-        $this->mount();
+        $this->dispatch('refresh')
+            ->component('dashboard.category.index');
         $this->resetFields();
         $this->closeModal();
 
@@ -143,7 +161,8 @@ class Index extends Component
     public function delete($id){
         $category = Category::find($id);
         $category->delete();
-        $this->mount();
+        $this->dispatch('refresh')
+            ->component('dashboard.category.index');
         $this->resetFields();
         $this->alert('success','Category deleted successfully', [
             'position' => 'top-end',
@@ -160,7 +179,17 @@ class Index extends Component
 
     public function render()
     {
-        return view('livewire.dashboard.category.index')
+        $categories = Category::latest()
+        ->where('name', 'like', '%' . $this->termSearch . '%')
+        ->paginate($this->perPage);
+        $totalCategories = Category::count();
+        $countCategories = count($categories);
+
+        return view('livewire.dashboard.category.index', [
+            'categories' => $categories,
+            'countCategories' => $countCategories,
+            'totalCategories' => $totalCategories
+        ])
         ->extends('dashboard.master')
         ->section('content');
     }

@@ -14,7 +14,6 @@ class ArticleHomePage extends Component
     public $videos;
     public $perPage = 10;
 
-
     use WithPagination;
 
 
@@ -26,7 +25,11 @@ class ArticleHomePage extends Component
     public function render()
     {
         $latestArticles = Post::latest()->where('id','!=',15)->paginate($this->perPage);
+        $countPosts = count($latestArticles);
 
-        return view('livewire.front.article-home-page', ['latestArticles' => $latestArticles]);
+        return view('livewire.front.article-home-page', [
+            'latestArticles' => $latestArticles,
+            'countPosts' => $countPosts
+        ]);
     }
 }

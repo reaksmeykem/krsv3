@@ -5,7 +5,7 @@
         </div>
         <div>
             <ul class="flex justify-center md:justify-start space-x-6">
-                <li><a href="">Sitemap</a></li>
+                <li><a href="{{ route('sitemap') }}">Sitemap</a></li>
                 <li><a href="">Policy and Terms</a></li>
             </ul>
         </div>
