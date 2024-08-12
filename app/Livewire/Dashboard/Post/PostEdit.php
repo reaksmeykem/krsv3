@@ -189,7 +189,7 @@ class PostEdit extends Component
             'title' => $post->meta_title ? $post->meta_title : $this->title,
             'description' => $post->meta_description ? $post->meta_description : $this->excerpt,
             'author' => Auth::user()->name,
-            'image' => $this->thumbnil ? Storage::url($post->thumbnail_path) : null,
+            'image' => $storagePath,
             'canonical_url' => $post->slug,
          ]);
 
