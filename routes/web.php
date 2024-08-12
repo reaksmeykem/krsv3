@@ -25,8 +25,13 @@ Route::get('login', function(){
     return view('auth.login');
 })->name('login');
 
+Route::get('guest/logout', [AuthController::class,'guestLogout'])->name('guest.logout');
+
 Route::get('auth/google', [AuthController::class,'redirectToGoogle'])->name('auth.google');
 Route::get('auth/google/callback', [AuthController::class,'handleGoogleCallback'])->name('auth.googl.callback');
+
+Route::get('auth/github', [AuthController::class, 'redirectToGithub'])->name('auth.github');
+Route::get('auth/github/callback', [AuthController::class,'handleGithubCallback'])->name('auth.github.callback');
 
 Route::middleware(['auth', 'role_or_permission:view user|create user|edit user|update user|delete user'])->group(function () {
     Route::get('admin/user/index' ,App\Livewire\Dashboard\User\Index::class)->name('user.index');

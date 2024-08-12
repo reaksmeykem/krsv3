@@ -17,16 +17,60 @@
                 </div>
             </div>
             <div class="flex items-center">
-                <ul class="flex space-x-6">
+                <ul class="flex items-center space-x-6">
                     <li>
-                        <button wire:click="openModal()"><i class="fa-solid fa-magnifying-glass"></i></button>
+                        <button wire:click="openModal()" id="search" aria-label="Click for search modal popup"><i class="fa-solid fa-magnifying-glass"></i></button>
                     </li>
-                    <li><a href="#" class="bg-[#F4CE14] rounded px-4 py-2">Login</a></li>
+                    <li>
+                        @guest
+                        <a href="{{ route('auth.github') }}" class="bg-[#F4CE14] rounded px-4 py-2">Login</a>
+                        @endguest
+                        @auth
+                        <a href="#">
+                            <div>
 
+                                <div x-cloak x-data="{ open: false }" class="relative inline-block text-left">
+                                    <div>
+                                      <button @click="open = ! open" type="button"  >
+                                        <div class="flex items-center">
+                                            <div>
+                                                <img class="w-12 h-12 rounded-full border"
+                                                    src="{{ Storage::exists(Auth::user()->photo) ? Storage::url(Auth::user()->photo) : Auth::user()->photo }}"
+                                                    alt="{{ Auth::user()->name }}">
+                                            </div>
+                                        </div>
+                                      </button>
+                                    </div>
+                                    <div x-show="open" @click.outside="open = false" class="absolute right-0 z-10 mt-2  origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none" aria-orientation="vertical" tabindex="-1">
+                                      <div class="py-1" role="none">
+                                        <div class="p-5">
+                                            <div class="flex">
+                                                <div class="me-2">
+                                                    <img class="w-12 h-12 shadow-sm rounded-full border"
+                                                        src="{{ Storage::exists(Auth::user()->photo) ? Storage::url(Auth::user()->photo) : Auth::user()->photo }}"
+                                                        alt="{{ Auth::user()->name }}">
+                                                </div>
+                                                <div>
+                                                    <label for="">{{ Auth::user()->name }}</label>
+                                                </div>
+                                            </div>
+                                            <a href="{{ route('guest.logout') }}"><i class="fa-solid fa-right-from-bracket"></i> ចាកចេញ</a>
+                                        </div>
+
+                                      </div>
+                                    </div>
+                                  </div>
+
+
+                            </div>
+
+                        </a>
+                        @endauth
+                    </li>
                 </ul>
                 <div class="block md:hidden">
                     <div x-cloak x-data="{ open: false }" class="relative inline-block text-left">
-                        <button @click="open = ! open" type="button" class="ml-[15px] border rounded px-4 py-1">
+                        <button @click="open = ! open" type="button" id="menu" aria-label="Click for dropdown menu" class="ml-[15px] border rounded px-4 py-1">
                             <i class="fa-solid fa-bars"></i>
                         </button>
                         <div x-show="open" @click.outside="open = false" class="absolute right-0 z-10 mt-2  origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none" aria-orientation="vertical" tabindex="-1">

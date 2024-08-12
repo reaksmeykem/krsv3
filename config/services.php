@@ -37,6 +37,11 @@ return [
     ],
     'ga4' => [
         'measurementId' => env('GA_MEASUREMENT_ID'),
-    ]
+    ],
+    'github' => [
+        'client_id' => env('GITHUB_ID'),
+        'client_secret' => env('GITHUB_SECRET'),
+        'redirect' => env('GITHUB_URL'),
+    ],
 
 ];

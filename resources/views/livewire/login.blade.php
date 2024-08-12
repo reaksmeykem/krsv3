@@ -60,6 +60,14 @@
                 </div>
             </a>
         </div>
+        <div class="mt-4">
+            <a href="{{ route('auth.github') }}">
+                <div class="flex justify-center items-center bg-slate-900 rounded p-2 py-1">
+                    <i class="fa-brands fa-github text-3xl text-white"></i>
+                    <span class="text-white ms-3 text-center">Sign in with Google</span>
+                </div>
+            </a>
+        </div>
     </form>
 
 </div>

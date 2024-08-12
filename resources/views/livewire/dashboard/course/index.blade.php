@@ -29,7 +29,7 @@
     {{-- end breadcrumb --}}
 
     {{-- modal --}}
-    @include('livewire.dashboard.tutorial.form')
+    @include('livewire.dashboard.course.form')
 
     <div class="bg-white p-8 rounded-xl">
         <div class="flex justify-between items-center">
