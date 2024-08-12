@@ -21,7 +21,7 @@
                     <li>
                         <button wire:click="openModal()" id="search" aria-label="Click for search modal popup"><i class="fa-solid fa-magnifying-glass"></i></button>
                     </li>
-                    <li>
+                    {{-- <li>
                         @guest
                         <a href="{{ route('auth.github') }}" class="bg-[#F4CE14] rounded px-4 py-2">Login</a>
                         @endguest
@@ -66,7 +66,7 @@
 
                         </a>
                         @endauth
-                    </li>
+                    </li> --}}
                 </ul>
                 <div class="block md:hidden">
                     <div x-cloak x-data="{ open: false }" class="relative inline-block text-left">
