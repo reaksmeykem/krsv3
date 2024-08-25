@@ -1,0 +1,66 @@
+<?php
+
+namespace App\Livewire\Front;
+
+use Livewire\Component;
+use App\Models\Category;
+use Livewire\Attributes\Lazy;
+use Livewire\WithPagination;
+use App\Models\Post;
+
+#[Lazy(isolate: true)]
+class GetPostbyCategory extends Component
+{
+    // public $category;
+    // public $posts;
+    public $categorySlug;
+    public function mount($categorySlug){
+        $this->categorySlug = $categorySlug;
+    }
+
+    use WithPagination;
+    public $perPage = 6;
+
+    public function loadMore(){
+        $this->perPage += 6;
+    }
+
+    public function placeholder()
+    {
+        return <<<'HTML'
+        <div class="min-h-screen font-sans antialiased">
+            <div class="gap-4 grid sm:grid-cols-2">
+                <div class="flex w-full flex-col gap-4 card bg-base-100 ">
+                    <div class="skeleton h-48 w-full rounded-b-none"></div>
+                    <div class="card-body">
+                        <div class="skeleton h-4 w-28 mb-2"></div>
+                        <div class="skeleton h-4 w-full"></div>
+                        <div class="skeleton h-4 w-full"></div>
+                    </div>
+                </div>
+                <div class="flex w-full flex-col gap-4 card bg-base-100 ">
+                    <div class="skeleton h-48 w-full rounded-b-none"></div>
+                    <div class="card-body">
+                        <div class="skeleton h-4 w-28 mb-2"></div>
+                        <div class="skeleton h-4 w-full"></div>
+                        <div class="skeleton h-4 w-full"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        HTML;
+    }
+
+
+    public function render()
+    {
+        sleep(2);
+        $category = Category::where('slug', $this->categorySlug)->first();
+        $posts = Post::where('category_id', $category->id)->with('category')->paginate($this->perPage);
+        // $this->posts = $this->category->posts;
+
+        return view('livewire.front.get-postby-category', [
+            'posts' => $posts
+        ]);
+    }
+}
