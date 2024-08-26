@@ -28,16 +28,11 @@
    }
 </style>
 <body class="min-h-screen font-sans antialiased bg-base-200/50 dark:bg-base-200">
-
-
-        @livewire('front.menu')
-
-
-    <div class="max-w-screen-md mx-auto my-8 px-5 sm:px-0">
+    @livewire('front.menu')
+    <div class="max-w-[900px] mx-auto my-8 px-5 sm:px-0">
         @yield('content')
     </div>
     @livewire('front.footer')
     <x-toast />
-
 </body>
 </html>

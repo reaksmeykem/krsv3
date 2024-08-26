@@ -64,6 +64,9 @@ Route::middleware(['auth', 'role_or_permission:view tag|create tag|edit tag|upda
     Route::get('tag', TagForm::class)->name('tag');
 });
 
+use App\Livewire\SettingForm;
+Route::get('setting', SettingForm::class)->name('setting');
+
 Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
     \UniSharp\LaravelFilemanager\Lfm::routes();
 });
@@ -78,6 +81,6 @@ Route::middleware(['track.visits'])->group(function () {
     Route::get('/', [HomeController::class,'index'])->name('home');
     Route::get('{categorySlug}', [PostController::class,'getPostByCategory'])->name('getPostByCategory');
     Route::get('{categorySlug}/{postSlug}', [PostController::class,'postDetail'])->name('postDetail');
-    
+
     // for frontend
 });

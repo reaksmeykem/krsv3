@@ -22,7 +22,7 @@
                     <div>
                         @foreach($results as $post)
                             <div class="mb-4 border-t pt-4 border-dashed">
-                                <a href="">
+                                <a href="{{ route('postDetail', [$post->category->slug, $post->slug]) }}">
                                 <h3 class="text-lg hover:text-warning">{{ $post->title }}</h3>
                                 </a>
                             </div>

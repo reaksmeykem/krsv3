@@ -10,7 +10,9 @@
      <script src="https://cdn.jsdelivr.net/npm/photoswipe@5.4.3/dist/umd/photoswipe.umd.min.js"></script>
      <script src="https://cdn.jsdelivr.net/npm/photoswipe@5.4.3/dist/umd/photoswipe-lightbox.umd.min.js"></script>
      <link href="https://cdn.jsdelivr.net/npm/photoswipe@5.4.3/dist/photoswipe.min.css" rel="stylesheet">
-
+    {{-- EasyMDE --}}
+    <link rel="stylesheet" href="https://unpkg.com/easymde/dist/easymde.min.css">
+    <script src="https://unpkg.com/easymde/dist/easymde.min.js"></script>
     {{-- Chart.js  --}}
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 
@@ -80,6 +82,7 @@
                         @endcan
                     </x-menu-sub>
                     @endcan
+                    <x-menu-item title="Settings" icon="o-sparkles" link="{{ route('setting') }}" />
                 @endauth
                 {{-- <x-menu-item title="Hello" icon="o-sparkles" link="/" /> --}}
 
