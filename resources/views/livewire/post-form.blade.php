@@ -149,7 +149,7 @@
     <x-card>
         <x-table :headers="$headers" :rows="$posts" :sort-by="$sortBy">
             @scope('actions', $post)
-                <x-button icon="c-pencil-square" link="{{ route('post.edit', $post['id']) }}" spinner class="btn-ghost btn-sm text-blue-500" />
+                <x-button icon="c-pencil-square" link="{{ route('post.edit', $post['id']) }}" no-wire-navigate spinner class="btn-ghost btn-sm text-blue-500" />
                 <x-button icon="o-trash" wire:click="deleteConfirm({{ $post['id'] }})" spinner class="btn-ghost btn-sm text-red-500" />
             @endscope
             @scope('cell_category_id', $post)

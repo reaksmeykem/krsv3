@@ -8,16 +8,14 @@ use App\Models\Post;
 use Livewire\WithPagination;
 use Livewire\Attributes\Lazy;
 use App\Models\Setting;
-use Parsedown;
-
 #[Lazy]
 class Home extends Component
 {
     use WithPagination;
-    public $perPage = 3;
+    public $perPage = 6;
 
     public function loadMore(){
-        $this->perPage += 3;
+        $this->perPage += 6;
     }
     public function placeholder()
     {
@@ -44,35 +42,14 @@ class Home extends Component
 
     public function render()
     {
-        sleep(2);
-        // project : category id = 15
-
-
-        $latestProject = Post::where('status', 1)
-            ->where('category_id', 15)
-            ->latest()
-            ->first();
-
-        $projects = Post::where('status', 1)
-            ->where('category_id', 15)
-            ->orderBy('id','desc')
-            ->skip(1)
-            ->latest()
-            ->take(2)
-            ->get();
-
+        
         $posts = Post::where('status', 1)
+        ->where('id','!=', 15)
         ->orderBy('id','desc')
         ->paginate($this->perPage);
 
-        $settings = Setting::get();
-
-
         return view('livewire.front.home', [
-            'projects' => $projects,
-            'latestProject' => $latestProject,
             'posts' => $posts,
-            'settings' => $settings
         ]);
     }
 }

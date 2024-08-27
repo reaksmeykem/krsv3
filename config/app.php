@@ -159,7 +159,8 @@ return [
         /*
          * Package Service Providers...
          */
-
+        Barryvdh\Debugbar\ServiceProvider::class,
+        Yajra\Disqus\DisqusServiceProvider::class,
         /*
          * Application Service Providers...
          */

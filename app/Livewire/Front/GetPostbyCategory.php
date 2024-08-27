@@ -4,11 +4,11 @@ namespace App\Livewire\Front;
 
 use Livewire\Component;
 use App\Models\Category;
-use Livewire\Attributes\Lazy;
+
 use Livewire\WithPagination;
 use App\Models\Post;
-
-#[Lazy(isolate: true)]
+use Livewire\Attributes\Lazy;
+#[Lazy]
 class GetPostbyCategory extends Component
 {
     // public $category;
@@ -54,13 +54,14 @@ class GetPostbyCategory extends Component
 
     public function render()
     {
-        sleep(2);
+
         $category = Category::where('slug', $this->categorySlug)->first();
-        $posts = Post::where('category_id', $category->id)->with('category')->paginate($this->perPage);
+        $posts = Post::where('category_id', $category->id)->latest()->with('category')->paginate($this->perPage);
         // $this->posts = $this->category->posts;
 
         return view('livewire.front.get-postby-category', [
-            'posts' => $posts
+            'posts' => $posts,
+            'category' => $category
         ]);
     }
 }

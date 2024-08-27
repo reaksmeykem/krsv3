@@ -9,10 +9,18 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
 
-class User extends Authenticatable
+use LakM\Comments\Concerns\Commenter;
+use LakM\Comments\Contracts\CommenterContract;
+
+
+class User extends Authenticatable implements CommenterContract
 {
+    use Commenter;
+
+
     use HasApiTokens, HasFactory, Notifiable;
     use HasRoles;
+
     /**
      * The attributes that are mass assignable.
      *

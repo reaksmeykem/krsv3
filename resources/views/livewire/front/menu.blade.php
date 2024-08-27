@@ -1,7 +1,7 @@
-<div>
+<div class="sticky top-0 z-50">
 
-    <div class="bg-base-100 sticky top-0 z-50">
-        <div class="navbar max-w-[900px] mx-auto ">
+    <div class="bg-base-100 sticky top-0 ">
+        <div class="navbar max-w-[800px] mx-auto ">
             <div class="navbar-start">
                 <div class="dropdown">
                     <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
@@ -12,12 +12,15 @@
                         </svg>
                     </div>
                     <ul tabindex="0"
-                        class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
+                        class="menu menu-sm dropdown-content rounded-box z-[1] mt-3 w-52 p-2 shadow">
                         @foreach ($categories as $category)
-                            <li><a
+                            <li><a wire:navigate
                                     href="{{ route('getPostByCategory', $category['slug']) }}">{{ $category['name'] }}</a>
                             </li>
                         @endforeach
+                        <li><a
+                            href="{{ route('about') }}">About me</a>
+                        </li>
                     </ul>
                 </div>
                 <a href="{{ route('home') }}" wire:navigate class="text-3xl font-black">K<span
@@ -29,6 +32,9 @@
                         <li><a href="{{ route('getPostByCategory', $category['slug']) }}">{{ $category['name'] }}</a>
                         </li>
                     @endforeach
+                    <li><a
+                        href="{{ route('about') }}">About me</a>
+                    </li>
                 </ul>
             </div>
             <div class="navbar-end">

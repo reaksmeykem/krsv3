@@ -17,10 +17,10 @@ class PostDetail extends Component
         $this->post = $post;
         $this->post->increment('view_count');
 
-        $this->relatePosts = Post::where('status', 1)->latest()->where('category_id', $this->post->category->id)->take(3)->get();
+        $this->relatePosts = Post::where('status', 1)->latest()->where('category_id', $this->post->category->id)->take(4)->get();
         $this->latestPosts = Post::where('status', 1)->latest()->take(3)->get();
 
-        
+
     }
 
     public function placeholder()
@@ -43,14 +43,14 @@ class PostDetail extends Component
                     </div>
                     <div class="skeleton w-full h-56"></div>
                 </div>
-                
+
             </div>
         </div>
         HTML;
     }
     public function render()
     {
-        sleep(2);
+        
         return view('livewire.front.post-detail');
     }
 }

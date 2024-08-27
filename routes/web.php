@@ -5,16 +5,11 @@
 
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
+
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\HomeController;
+
+
 use App\Livewire\Login;
 Route::get('/login', Login::class)->name('login');
 
@@ -70,14 +65,13 @@ Route::get('setting', SettingForm::class)->name('setting');
 Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
     \UniSharp\LaravelFilemanager\Lfm::routes();
 });
-use App\Livewire\Home;
-use App\Livewire\Front\GetPostbyCategory;
-use App\Http\Controllers\PostController;
-use App\Http\Controllers\HomeController;
+
 // track visitors
 Route::middleware(['track.visits'])->group(function () {
     // Route::get('/', Home::class)->name('home');
     // Route::get('{categorySlug}', GetPostbyCategory::class)->name('getPostByCategory');
+    Route::get('about-me', [PostController::class,'aboutMe'])->name('about');
+    Route::get('tag/{tagSlug}', [PostController::class,'getPostByTag'])->name('getPostByTag');
     Route::get('/', [HomeController::class,'index'])->name('home');
     Route::get('{categorySlug}', [PostController::class,'getPostByCategory'])->name('getPostByCategory');
     Route::get('{categorySlug}/{postSlug}', [PostController::class,'postDetail'])->name('postDetail');

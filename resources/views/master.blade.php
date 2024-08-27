@@ -14,7 +14,7 @@
      {{-- google font --}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://fonts.googleapis.com/css2?family=Hanuman:wght@100;300;400;700;900&family=Inter:wght@100..900&display=swap" rel="stylesheet">
-
+    @commentsStyles
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <style>
@@ -27,12 +27,13 @@
         font-size: 18px;
    }
 </style>
-<body class="min-h-screen font-sans antialiased bg-base-200/50 dark:bg-base-200">
+<body class=" font-sans antialiased bg-base-200/50 dark:bg-base-200">
     @livewire('front.menu')
-    <div class="max-w-[900px] mx-auto my-8 px-5 sm:px-0">
+    <div class="max-w-[800px] min-h-screen mx-auto my-8 px-5 sm:px-0">
         @yield('content')
     </div>
     @livewire('front.footer')
+    @commentsScripts
     <x-toast />
 </body>
 </html>

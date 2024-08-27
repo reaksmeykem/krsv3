@@ -5,9 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Post extends Model
+use LakM\Comments\Concerns\Commentable;
+use LakM\Comments\Contracts\CommentableContract;
+
+
+class Post extends Model implements CommentableContract
 {
     use HasFactory;
+    use Commentable;
+
 
     protected $fillable = [
         'id',
