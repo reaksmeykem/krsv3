@@ -3,25 +3,35 @@
 namespace App\Livewire\Front;
 
 use Livewire\Component;
-use Livewire\Attributes\Lazy;
+// use Livewire\Attributes\Lazy;
 use App\Models\Post;
+use App\Models\Category;
 
-#[Lazy]
+// #[Lazy]
 class PostDetail extends Component
 {
     public $post;
     public $relatePosts;
-    public $latestPosts;
 
-    public function mount($post){
-        $this->post = $post;
+    public function mount($postSlug, $categorySlug){
+
+        $category = Category::where('slug', $categorySlug)->first();
+        $this->post = Post::where('slug', $postSlug)
+            ->where('category_id', $category->id)
+            ->with(['category','user'])
+            ->first();
         $this->post->increment('view_count');
-
-        $this->relatePosts = Post::where('status', 1)->latest()->where('category_id', $this->post->category->id)->take(4)->get();
-        $this->latestPosts = Post::where('status', 1)->latest()->take(3)->get();
-
+        $this->relatePosts = Post::where('status', 1)->where('id','!=',$this->post->id)->latest()->where('category_id', $this->post->category->id)->take(5)->get();
 
     }
+
+    // public function mount($post){
+    //     $this->post = $post;
+    //     $this->post->increment('view_count');
+
+    //     $this->relatePosts = Post::where('status', 1)->where('id','!=',$this->post->id)->latest()->where('category_id', $this->post->category->id)->take(5)->get();
+
+    // }
 
     public function placeholder()
     {
@@ -50,7 +60,7 @@ class PostDetail extends Component
     }
     public function render()
     {
-        
+
         return view('livewire.front.post-detail');
     }
 }

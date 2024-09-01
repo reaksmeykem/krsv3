@@ -11,7 +11,7 @@ use App\Http\Controllers\HomeController;
 
 
 use App\Livewire\Login;
-Route::get('/login', Login::class)->name('login');
+Route::get('auth/login', Login::class)->name('login');
 
 // Route::get('login', Login::class)->name('login');
 use App\Http\Controllers\AuthController;
@@ -59,6 +59,14 @@ Route::middleware(['auth', 'role_or_permission:view tag|create tag|edit tag|upda
     Route::get('tag', TagForm::class)->name('tag');
 });
 
+use App\Livewire\ContactList;
+Route::middleware(['auth', 'role_or_permission:view contact'])->group(function () {
+    Route::get('contact-list', ContactList::class)->name('contactList');
+});
+
+use App\Livewire\TutorialForm;
+Route::get('tutorial', TutorialForm::class)->name('tutorial');
+
 use App\Livewire\SettingForm;
 Route::get('setting', SettingForm::class)->name('setting');
 
@@ -66,15 +74,38 @@ Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']
     \UniSharp\LaravelFilemanager\Lfm::routes();
 });
 
+use App\Http\Controllers\ContactController;
+use App\Livewire\Front\Home;
+use App\Livewire\AboutMe;
+use App\Livewire\Front\ContactForm;
+use App\Livewire\Front\GetPostbyCategory;
+use App\Livewire\CookieConsent;
+use App\Livewire\Front\PostDetail;
+use App\Livewire\GetPostByTag;
 // track visitors
+
 Route::middleware(['track.visits'])->group(function () {
-    // Route::get('/', Home::class)->name('home');
-    // Route::get('{categorySlug}', GetPostbyCategory::class)->name('getPostByCategory');
-    Route::get('about-me', [PostController::class,'aboutMe'])->name('about');
-    Route::get('tag/{tagSlug}', [PostController::class,'getPostByTag'])->name('getPostByTag');
-    Route::get('/', [HomeController::class,'index'])->name('home');
-    Route::get('{categorySlug}', [PostController::class,'getPostByCategory'])->name('getPostByCategory');
-    Route::get('{categorySlug}/{postSlug}', [PostController::class,'postDetail'])->name('postDetail');
+    Route::get('/sitemap.xml', function () {
+        return response()->file(storage_path('app/public/sitemap.xml'));
+    })->name('sitemap');
+    Route::get('terms-and-privacy', [HomeController::class,'TermsAndPrivacy'])->name('TermsAndPrivacy');
+    // Route::get('cookie-consent', [HomeController::class,'cookieConsent'])->name('cookieConsent');
+    // Route::get('contact', [ContactController::class,'contact'])->name('contact');
+    // Route::get('about-me', [PostController::class,'aboutMe'])->name('about');
+    // Route::get('tag/{tagSlug}', [PostController::class,'getPostByTag'])->name('getPostByTag');
+    // Route::get('/', [HomeController::class,'index'])->name('home');
+
+    Route::get('/', Home::class)->name('home');
+    Route::get('/about-me', AboutMe::class)->name('about');
+    Route::get('/contact', ContactForm::class)->name('contact');
+    Route::get('cookie-consent', CookieConsent::class)->name('cookieConsent');
+    Route::get('{categorySlug}', GetPostbyCategory::class)->name('getPostByCategory');
+    Route::get('tag/{tagSlug}', GetPostByTag::class)->name('getPostByTag');
+    Route::get('{categorySlug}/{postSlug}', PostDetail::class)->name('postDetail');
+
+    // Route::get('{categorySlug}', [PostController::class,'getPostByCategory'])->name('getPostByCategory');
+    // Route::get('{categorySlug}/{postSlug}', [PostController::class,'postDetail'])->name('postDetail');
 
     // for frontend
 });
+

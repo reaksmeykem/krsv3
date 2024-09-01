@@ -6,98 +6,61 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{ isset($title) ? $title.' - '.config('app.name') : config('app.name') }}</title>
 
-     {{-- PhotoSwipe --}}
-     <script src="https://cdn.jsdelivr.net/npm/photoswipe@5.4.3/dist/umd/photoswipe.umd.min.js"></script>
-     <script src="https://cdn.jsdelivr.net/npm/photoswipe@5.4.3/dist/umd/photoswipe-lightbox.umd.min.js"></script>
-     <link href="https://cdn.jsdelivr.net/npm/photoswipe@5.4.3/dist/photoswipe.min.css" rel="stylesheet">
-    {{-- EasyMDE --}}
-    <link rel="stylesheet" href="https://unpkg.com/easymde/dist/easymde.min.css">
-    <script src="https://unpkg.com/easymde/dist/easymde.min.js"></script>
     {{-- Chart.js  --}}
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js" defer></script>
+
+    {{-- google font --}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Hanuman:wght@100;300;400;700;900&family=Inter:wght@100..900&display=swap" rel="stylesheet">
+
+    {{-- clarity --}}
+    <script type="text/javascript" defer>
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "nuy3d9ok4c");
+    </script>
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
+<style>
+    *{
+        font-family: "Inter","Hanuman";
+        font-size: 18px;
+    }
+    body{
+        font-family: "Inter","Hanuman";
+        font-size: 18px;
+   }
+</style>
 <body class="min-h-screen font-sans antialiased bg-base-200/50 dark:bg-base-200">
+    {{-- guest section --}}
+    @guest
+        <a id="back-to-top" href="#" class="fixed z-50 bottom-4 right-4 bg-[#2196f3] text-white p-2 rounded-full shadow-lg transition duration-300 opacity-0 invisible">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 15.75 7.5-7.5 7.5 7.5" />
+            </svg>
+        </a>
+        @livewire('front.menu')
+        <div class="max-w-[900px] min-h-screen mx-auto">
+            @include('livewire.guest-dashboard')
+        </div>
+        @livewire('front.footer')
+        @include('cookie-consent::index')
+        {{-- hcaptcha --}}
+        <script src="https://hcaptcha.com/1/api.js" async defer></script>
 
-    {{-- NAVBAR mobile only --}}
-    <x-nav sticky class="lg:hidden">
-        <x-slot:brand>
-            <x-app-brand />
-        </x-slot:brand>
-        <x-slot:actions>
-            <label for="main-drawer" class="lg:hidden me-3">
-                <x-icon name="o-bars-3" class="cursor-pointer" />
-            </label>
-        </x-slot:actions>
-    </x-nav>
+        {{-- end hcaptcha --}}
+        <script src="{{ asset('plugin/app.js') }}" defer></script>
+    @endguest
+    {{-- admin section --}}
+    @can('view dashboard')
+        @auth()
+            @include('livewire.admin-dashboard')
+        @endauth
+    @endcan
 
-    {{-- MAIN --}}
-    <x-main full-width>
-        {{-- SIDEBAR --}}
-        <x-slot:sidebar drawer="main-drawer" collapsible class="bg-base-100 lg:bg-inherit">
-
-            {{-- BRAND --}}
-            <x-app-brand class="p-5 pt-3" />
-
-            {{-- MENU --}}
-            <x-menu activate-by-route>
-                <x-theme-toggle darkTheme="dark" lightTheme="light" />
-                {{-- User --}}
-                @if($user = auth()->user())
-                    <x-menu-separator />
-
-                    <x-list-item :item="$user" value="name" sub-value="email" no-separator no-hover class="-mx-2 !-my-2 rounded">
-                        <x-slot:actions>
-                            <x-button icon="o-power" class="btn-circle btn-ghost btn-xs" tooltip-left="logout" no-wire-navigate link="/logout" />
-                        </x-slot:actions>
-                    </x-list-item>
-
-                    <x-menu-separator />
-                @endif
-
-                @auth()
-                    @can('view dashboard')
-                    <x-menu-item title="Dashbaord" icon="o-sparkles" link="{{ route('dashboard') }}" />
-                    @endcan
-                    @can('view post')
-                    <x-menu-sub title="Posts" icon="o-cog-6-tooth">
-                        <x-menu-item title="Content" icon="o-wifi" link="{{ route('post') }}" />
-                        @can('view category')
-                        <x-menu-item title="Category" icon="o-archive-box" link="{{ route('category') }}" />
-                        @endcan
-                        @can('view tag')
-                        <x-menu-item title="Tags" icon="o-archive-box" link="{{ route('tag') }}" />
-                        @endcan
-                    </x-menu-sub>
-                    @endcan
-                    @can('view user')
-                    <x-menu-sub title="Admin" icon="o-cog-6-tooth">
-                        <x-menu-item title="Users" icon="o-wifi" link="user" />
-                        @can('view role')
-                        <x-menu-item title="Roles" icon="o-archive-box" link="role" />
-                        @endcan
-                        @can('view permission')
-                        <x-menu-item title="Permissions" icon="o-archive-box" link="permission" />
-                        @endcan
-                    </x-menu-sub>
-                    @endcan
-                    <x-menu-item title="Settings" icon="o-sparkles" link="{{ route('setting') }}" />
-                @endauth
-                {{-- <x-menu-item title="Hello" icon="o-sparkles" link="/" /> --}}
-
-                @guest()
-                <x-menu-item title="Login" icon="o-sparkles" link="{{ route('login') }}" />
-                @endguest
-
-            </x-menu>
-        </x-slot:sidebar>
-
-        {{-- The `$slot` goes here --}}
-        <x-slot:content>
-            {{ $slot }}
-        </x-slot:content>
-    </x-main>
 
 
     {{--  TOAST area --}}

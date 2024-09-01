@@ -4,15 +4,23 @@ namespace App\Console;
 
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
+use App\Console\Commands\GenerateSitemap;
 
 class Kernel extends ConsoleKernel
 {
     /**
      * Define the application's command schedule.
+
      */
+
+    protected $commands = [
+        GenerateSitemap::class,
+    ];
+
     protected function schedule(Schedule $schedule): void
     {
         // $schedule->command('inspire')->hourly();
+        $schedule->command('sitemap:generate')->weekly();
     }
 
     /**

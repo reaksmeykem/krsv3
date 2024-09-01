@@ -6,9 +6,9 @@ use Livewire\Component;
 use App\Models\Post;
 
 use Livewire\WithPagination;
-use Livewire\Attributes\Lazy;
-use App\Models\Setting;
-#[Lazy]
+// use Livewire\Attributes\Lazy;
+
+// #[Lazy(isolate: false)]
 class Home extends Component
 {
     use WithPagination;
@@ -22,7 +22,7 @@ class Home extends Component
         return <<<'HTML'
         <div class="min-h-screen font-sans antialiased">
             <div>
-                <div class="my-[90px] gap-8 grid lg:grid-cols-3">
+                <div class="my-[90px] gap-8 grid md:grid-cols-3">
                     <div class="col-span-2">
                         <div class="skeleton w-64 h-10 mb-10"></div>
                         <div class="skeleton w-full h-4 mb-3"></div>
@@ -42,7 +42,7 @@ class Home extends Component
 
     public function render()
     {
-        
+
         $posts = Post::where('status', 1)
         ->where('id','!=', 15)
         ->orderBy('id','desc')

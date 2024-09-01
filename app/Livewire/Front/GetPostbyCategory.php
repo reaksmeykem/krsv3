@@ -7,8 +7,9 @@ use App\Models\Category;
 
 use Livewire\WithPagination;
 use App\Models\Post;
-use Livewire\Attributes\Lazy;
-#[Lazy]
+// use Livewire\Attributes\Lazy;
+
+// #[Lazy(isolate: false)]
 class GetPostbyCategory extends Component
 {
     // public $category;
@@ -31,19 +32,27 @@ class GetPostbyCategory extends Component
         <div class="min-h-screen font-sans antialiased">
             <div class="gap-4 grid sm:grid-cols-2">
                 <div class="flex w-full flex-col gap-4 card bg-base-100 ">
-                    <div class="skeleton h-48 w-full rounded-b-none"></div>
+
                     <div class="card-body">
                         <div class="skeleton h-4 w-28 mb-2"></div>
                         <div class="skeleton h-4 w-full"></div>
                         <div class="skeleton h-4 w-full"></div>
+                        <div class="flex space-x-3 mt-3">
+                            <div class="skeleton h-3 w-24"></div>
+                            <div class="skeleton h-3 w-24"></div>
+                        </div>
                     </div>
                 </div>
                 <div class="flex w-full flex-col gap-4 card bg-base-100 ">
-                    <div class="skeleton h-48 w-full rounded-b-none"></div>
+
                     <div class="card-body">
                         <div class="skeleton h-4 w-28 mb-2"></div>
                         <div class="skeleton h-4 w-full"></div>
                         <div class="skeleton h-4 w-full"></div>
+                        <div class="flex space-x-3 mt-3">
+                            <div class="skeleton h-3 w-24"></div>
+                            <div class="skeleton h-3 w-24"></div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -57,8 +66,6 @@ class GetPostbyCategory extends Component
 
         $category = Category::where('slug', $this->categorySlug)->first();
         $posts = Post::where('category_id', $category->id)->latest()->with('category')->paginate($this->perPage);
-        // $this->posts = $this->category->posts;
-
         return view('livewire.front.get-postby-category', [
             'posts' => $posts,
             'category' => $category

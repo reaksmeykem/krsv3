@@ -1,7 +1,7 @@
 <div>
 
     <div class="py-4 flex flex-wrap items-center justify-between">
-        <h2 class="text-2xl font-black">
+        <h2 class="text-2xl font-black text-[#2196f3]">
             {{ $category->name }}
         </h2>
         <div class="breadcrumbs text-xs">
@@ -12,34 +12,34 @@
             </ul>
         </div>
     </div>
-    <div class="grid sm:grid-cols-2 grid-cols-1 sm:gap-6">
+    <div class="grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-6">
         @foreach ($posts as $post)
             @if ($post->id != 15)
-            <div class="card bg-base-100 shadow">
-                {{-- <figure>
-                    <img loading="lazy" src="{{ Storage::url($post->thumbnail_path) }}"
+            <div>
+                <figure>
+                    <img class="aspect-[16/9] rounded-lg bg-cover object-cover" loading="lazy" src="{{ Storage::url($post->thumbnail_path) }}"
                         alt="{{ Storage::url($post->thumbnail_path) }}" />
-                </figure> --}}
-                <div class="card-body">
+                </figure>
+                <div>
 
-                    <div>
-                        <div><a href="{{ route('getPostByCategory', $post->category->slug) }}" class="block text-warning"><small>{{ $post->category->name }}</small></a></div>
+                    <div class="mt-3">
+
                         <h2 class="line-clamp-2">
-                            <a class="hover:text-warning text-lg font-bold" href="{{ route('postDetail', [$post->category->slug, $post->slug]) }}">
+                            <a class="hover:text-[#2196f3] text-sm font-bold" href="{{ route('postDetail', [$post->category->slug, $post->slug]) }}">
                                 {{ $post->title }}
                             </a>
                         </h2>
                         <div class="mt-2 flex flex-wrap space-x-3 items-center">
-
+                            <div><a href="{{ route('getPostByCategory', $post->category->slug) }}" class="block text-[#2196f3] font-bold"><small>{{ $post->category->name }}</small></a></div>
                             <small>{{ $post->created_at->format('F d, Y') }}</small>
-                            <small class="mx-1">.</small>
-                            <small>{{ $post->view_count }} Views</small>
+                            {{-- <small class="mx-1">.</small>
+                            <small>{{ $post->view_count }} Views</small> --}}
                         </div>
-                        {{-- <p class="line-clamp-2 mt-2">{{ $post->excerpt }}</p> --}}
+                        {{-- <small class="line-clamp-2 mt-2">{{ $post->excerpt }}</small> --}}
                     </div>
                 </div>
-            </div>
 
+            </div>
             @endif
         @endforeach
     </div>
@@ -47,11 +47,11 @@
             <div class="text-center my-[60px]">
                 @if($posts->hasMorePages())
                     <div role="status" wire:loading class="flex items-center">
-                        <x-loading class="loading-dots text-lg text-warning" />
+                        <x-loading class="loading-dots text-xl text-[#2196f3]" />
                     </div>
-                    <button wire:click.prevent="loadMore" wire:loading.remove>Load more</button>
+                    <button wire:click.prevent="loadMore" wire:loading.remove>បង្ហាញបន្ថែម</button>
                 @else
-                    <div class="text-slate-700">No more posts</div>
+                    <div class="text-slate-400 dark:text-slate-700">មិនមានការប្រកាសបន្ថែមទេ</div>
                 @endif
             </div>
         @endif

@@ -1,4 +1,4 @@
 @extends('master')
-@section('content')
+@section('contentFrontend')
     @livewire('front.get-postby-category', ['categorySlug' => $categorySlug])
 @endsection

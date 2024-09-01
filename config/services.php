@@ -43,5 +43,9 @@ return [
         'client_secret' => env('GITHUB_SECRET'),
         'redirect' => env('GITHUB_URL'),
     ],
+    'recaptcha_v3' => [
+        'siteKey' => env('RECAPTCHA_SITE_KEY'),
+        'secretKey' => env('RECAPTCHA_SECRET_KEY'),
+    ]
 
 ];

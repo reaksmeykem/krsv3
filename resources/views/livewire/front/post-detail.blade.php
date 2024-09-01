@@ -16,16 +16,16 @@
             </h2>
         </div>
         <div class="flex my-3">
-            <div class="mr-3"><img class="w-12 h-12 rounded-full" src="{{ Storage::url($post->user->photo) }}" alt=""></div>
+            <div class="mr-3"><img loading="lazy" class="w-12 h-12 rounded-full" src="{{ Storage::url($post->user->photo) }}" alt="{{ Storage::url($post->user->photo) }}"></div>
             <div>
                 <div>{{ $post->user->name }}</div>
                 <div><small>{{ \Carbon\Carbon::parse($post->created_at)->format('F d, Y') }}</small></div>
             </div>
         </div>
-        <article class="prose-stone my-6 mx-0 w-full">
+        <article class="prose prose-slate my-6">
             {!! $post->body !!}
         </article>
-        <div class="flex flex-wrap space-x-4 mt-8">
+        <div class="flex flex-wrap space-x-4 my-8">
             @foreach($post->tags as $tag)
                 <div>
                     <a href="{{ route('getPostByTag', $tag->slug) }}" class="btn btn-sm btn-outline">{{ $tag->name }}</a>
@@ -48,21 +48,21 @@
             async>
     </script>
     <div class="my-[30px]">
-        <h1 class="text-3xl mb-[30px]">Relate Posts</h1>
+        <h1 class="text-3xl mb-[30px]">ប្រកាសទាក់ទង</h1>
         <div class="grid sm:grid-cols-2 grid-cols-1 gap-6">
             @foreach ($relatePosts as $post)
                 @if ($post->id != 15)
                 <div class="card bg-base-100 shadow">
                     {{-- <figure>
-                        <img loading="lazy" src="{{ Storage::url($post->thumbnail_path) }}"
+                        <img class="aspect-[2/1]" loading="lazy" src="{{ Storage::url($post->thumbnail_path) }}"
                             alt="{{ Storage::url($post->thumbnail_path) }}" />
                     </figure> --}}
                     <div class="card-body">
 
                         <div>
-                            <div><a href="{{ route('getPostByCategory', $post->category->slug) }}" class="block text-warning"><small>{{ $post->category->name }}</small></a></div>
+                            <div><a href="{{ route('getPostByCategory', $post->category->slug) }}" class="block text-[#2196f3] font-bold"><small>{{ $post->category->name }}</small></a></div>
                             <h2 class="line-clamp-2">
-                                <a class="hover:text-warning text-lg font-bold" href="{{ route('postDetail', [$post->category->slug, $post->slug]) }}">
+                                <a class="hover:text-[#2196f3] text-lg font-bold" href="{{ route('postDetail', [$post->category->slug, $post->slug]) }}">
                                     {{ $post->title }}
                                 </a>
                             </h2>
